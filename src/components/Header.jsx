@@ -122,6 +122,13 @@ export default function Header() {
                 >
                   BMR Calculator
                 </Link>
+                <Link
+                  to="/macro-calculator"
+                  onClick={toggleMenu}
+                  className="block pl-8 pr-4 py-2 hover:bg-gray-50"
+                >
+                  Macro Calculator
+                </Link>
               </div>
             )}
           </div>

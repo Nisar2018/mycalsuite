@@ -83,6 +83,12 @@ export default function Sidebar() {
             >
               BMR Calculator
             </Link>
+            <Link
+              to="/macro-calculator"
+              className="block text-sm text-gray-700 hover:text-blue-700"
+            >
+              Macro Calculator
+            </Link>
           </div>
         )}
       </div>

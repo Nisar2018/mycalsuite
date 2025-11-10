@@ -15,8 +15,8 @@ import CalorieCalculatorPage from "./pages/CalorieCalculatorPage";
 import IdealWeightCalculatorPage from "./pages/IdealWeightCalculatorPage";
 import BodyFatCalculatorPage from "./pages/BodyFatCalculatorPage"
 import  BasalMetabolicRateCalculatorPage from "./pages/BasalMetabolicRateCalculatorPage";
-
-import MacroCalculator from "./components/health/MacroCalculator";
+import MacroCalculatorPage from "./pages/MacroCalculatorPage";
+//import MacroCalculator from "./components/health/MacroCalculator";
 
 const App = () => {
   return (
@@ -39,7 +39,7 @@ const App = () => {
       <Route path="/ideal-weight-calculator" element={<IdealWeightCalculatorPage />} />
       <Route path="/ideal-weight-calculator" element={<IdealWeightCalculatorPage />} />
 
-      <Route path="/macro-calculator" element={<MacroCalculator />} />
+      <Route path="/macro-calculator" element={<MacroCalculatorPage />} />
     </Routes>
     
     

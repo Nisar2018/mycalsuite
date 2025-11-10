@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import React, { useRef, useState } from "react";
 
 export default function CalorieCalculator() {
+  // inputs
   const [unit, setUnit] = useState("us");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("male");
@@ -12,9 +12,14 @@ export default function CalorieCalculator() {
   const [activity, setActivity] = useState("bmr");
   const [resultUnit, setResultUnit] = useState("calories");
   const [formula, setFormula] = useState("mifflin");
-  const [results, setResults] = useState(null);
-  const [macros, setMacros] = useState({ protein: 20, carbs: 50, fat: 30 });
 
+  // results
+  const [results, setResults] = useState(null);
+
+  // ref for dynamic result row
+  const resultRowRef = useRef(null);
+
+  // activity multipliers
   const activityFactors = {
     bmr: 1.0,
     sedentary: 1.2,
@@ -25,14 +30,52 @@ export default function CalorieCalculator() {
     extraActive: 2.2,
   };
 
-  const calculateCalories = () => {
-    let h =
-      unit === "us"
-        ? Number(heightFt) * 30.48 + Number(heightIn) * 2.54
-        : Number(heightCm);
-    let w = unit === "us" ? Number(weight) * 0.4536 : Number(weight);
-    let a = Number(age);
+  // default ranges (user accepted)
+  const rangesByGender = {
+    male: {
+      low: [0, 1800],
+      normal: [1800, 2600],
+      high: [2600, 3500],
+      max: 3500,
+      colors: ["#22c55e", "#f59e0b", "#ef4444"],
+    },
+    female: {
+      low: [0, 1500],
+      normal: [1500, 2100],
+      high: [2100, 2800],
+      max: 2800,
+      colors: ["#3b82f6", "#a78bfa", "#ec4899"],
+    },
+  };
 
+  // helper: polar -> cartesian (SVG)
+  const polarToCartesian = (cx, cy, r, angleDeg) => {
+    const angleRad = ((angleDeg - 90) * Math.PI) / 180.0;
+    return {
+      x: cx + r * Math.cos(angleRad),
+      y: cy + r * Math.sin(angleRad),
+    };
+  };
+
+  // SVG arc path for given startAngle and endAngle (degrees)
+  const describeArc = (cx, cy, r, startAngle, endAngle) => {
+    const start = polarToCartesian(cx, cy, r, endAngle);
+    const end = polarToCartesian(cx, cy, r, startAngle);
+    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 ${largeArcFlag} 0 ${end.x} ${end.y}`;
+  };
+
+  // calculate calories & set results (show dynamic row)
+  const calculateCalories = () => {
+    // convert units to metric
+    const h =
+      unit === "us"
+        ? Number(heightFt || 0) * 30.48 + Number(heightIn || 0) * 2.54
+        : Number(heightCm || 0);
+    const w = unit === "us" ? Number(weight || 0) * 0.453592 : Number(weight || 0);
+    const a = Number(age || 0);
+
+    // compute BMR
     let bmr = 0;
     if (formula === "mifflin") {
       bmr =
@@ -45,18 +88,41 @@ export default function CalorieCalculator() {
           ? 88.362 + 13.397 * w + 4.799 * h - 5.677 * a
           : 447.593 + 9.247 * w + 3.098 * h - 4.33 * a;
     } else if (formula === "katch") {
-      let lbm = w * (1 - 0.25);
+      // estimate LBM with assumed 25% body fat if user doesn't supply BF%
+      const lbm = w * (1 - 0.25);
       bmr = 370 + 21.6 * lbm;
     }
 
-    let total = bmr * (activityFactors[activity] || 1);
+    // total with activity
+    const factor = activityFactors[activity] || 1;
+    let total = bmr * factor;
+
+    // convert to kilojoules if requested
+    let displayBmr = bmr;
+    let displayTotal = total;
     if (resultUnit === "kilojoules") {
-      bmr *= 4.184;
-      total *= 4.184;
+      displayBmr *= 4.184;
+      displayTotal *= 4.184;
     }
-    setResults({ bmr: bmr.toFixed(2), total: total.toFixed(2) });
+
+    const payload = {
+      bmr: Number(displayBmr.toFixed(2)),
+      total: Number(displayTotal.toFixed(2)),
+    };
+
+    setResults(payload);
+
+    // scroll & focus to dynamic row
+    setTimeout(() => {
+      if (resultRowRef.current) {
+        resultRowRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        // focus for screen readers (element has tabIndex -1)
+        resultRowRef.current.focus({ preventScroll: true });
+      }
+    }, 120);
   };
 
+  // clear form and hide dynamic row
   const clearForm = () => {
     setAge("");
     setGender("male");
@@ -68,276 +134,280 @@ export default function CalorieCalculator() {
     setResultUnit("calories");
     setFormula("mifflin");
     setResults(null);
+
+    // focus to first input
+    setTimeout(() => {
+      const el = document.querySelector('input[type="number"]');
+      if (el) el.focus();
+    }, 50);
   };
 
-  // --- Gauge Meter ---
-  const renderGauge = (value) => {
-    const max = 4000;
-    const val = Math.min(value, max);
-    const angle = (val / max) * 180;
-    const rad = (angle - 180) * (Math.PI / 180);
-    const x = 150 + 120 * Math.cos(rad);
-    const y = 160 + 120 * Math.sin(rad);
+  // render the multi-colored segmented arc gauge (symmetrical 180°)
+  const SegmentedGauge = ({ value }) => {
+    const cfg = rangesByGender[gender] || rangesByGender.male;
+    const max = cfg.max;
+    const colors = cfg.colors;
 
-    const maleRanges = [
-      { d: "M 20 160 A 130 130 0 0 1 100 40", color: "#22c55e" },
-      { d: "M 100 40 A 130 130 0 0 1 200 40", color: "#eab308" },
-      { d: "M 200 40 A 130 130 0 0 1 280 160", color: "#ef4444" },
-    ];
-    const femaleRanges = [
-      { d: "M 20 160 A 130 130 0 0 1 120 60", color: "#3b82f6" },
-      { d: "M 120 60 A 130 130 0 0 1 180 60", color: "#f59e0b" },
-      { d: "M 180 60 A 130 130 0 0 1 280 160", color: "#ec4899" },
-    ];
+    // clamp and fraction
+    const val = Math.max(0, Math.min(Number(value) || 0, max));
+    const f = val / max; // fraction 0..1
 
-    const ranges = gender === "male" ? maleRanges : femaleRanges;
+    // SVG arc center and radius
+    const cx = 150;
+    const cy = 150;
+    const r = 120;
+    const strokeWidth = 18;
+
+    // We draw segments from left(180deg) -> right(0deg).
+    // compute cumulative fractions for segment endpoints based on ranges
+    const segEnds = [];
+    const segRanges = [
+      cfg.low,
+      cfg.normal,
+      cfg.high,
+    ];
+    let cum = 0;
+    for (let i = 0; i < segRanges.length; i++) {
+      const [s, e] = segRanges[i];
+      const segLen = Math.max(0, Math.min(e, max) - Math.max(s, 0));
+      const segFrac = segLen / max;
+      cum += segFrac;
+      segEnds.push(cum); // fraction end of segment
+    }
+    // segStarts can be derived
+    const segStarts = [0, segEnds[0], segEnds[1]];
+
+    // map fraction to angle in degrees on semicircle:
+    // fraction 0 -> angle 180 (left), fraction 1 -> angle 0 (right)
+    const fracToAngle = (frac) => 180 - frac * 180;
 
     return (
       <div className="flex flex-col items-center">
-        <svg width="150" height="90" viewBox="0 0 300 180">
-          {ranges.map((r, i) => (
-            <path
-              key={i}
-              d={r.d}
-              fill="none"
-              stroke={r.color}
-              strokeWidth="20"
-            />
-          ))}
-          <line
-            x1="150"
-            y1="160"
-            x2={x}
-            y2={y}
-            stroke="black"
-            strokeWidth="4"
+        <svg width="320" height="180" viewBox="0 0 300 180" role="img" aria-label="Calorie gauge">
+          {/* background track (subtle) */}
+          <path
+            d={describeArc(cx, cy, r, 0, 180)}
+            fill="none"
+            stroke="#e6e7ea"
+            strokeWidth={strokeWidth}
+            strokeLinecap="round"
           />
-          <circle cx="150" cy="160" r="6" fill="black" />
+
+          {/* segments */}
+          {segStarts.map((startFrac, i) => {
+            const endFrac = segEnds[i];
+            const startAngle = fracToAngle(startFrac);
+            const endAngle = fracToAngle(endFrac);
+            // describe arc from startAngle -> endAngle
+            return (
+              <path
+                key={i}
+                d={describeArc(cx, cy, r, startAngle, endAngle)}
+                fill="none"
+                stroke={colors[i]}
+                strokeWidth={strokeWidth}
+                strokeLinecap="butt"
+              />
+            );
+          })}
+
+          {/* needle */}
+          {(() => {
+            const needleAngle = fracToAngle(f);
+            const needlePoint = polarToCartesian(cx, cy, r - strokeWidth / 2 - 6, needleAngle);
+            return (
+              <>
+                <line
+                  x1={cx}
+                  y1={cy}
+                  x2={needlePoint.x}
+                  y2={needlePoint.y}
+                  stroke="#111827"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <circle cx={cx} cy={cy} r="6" fill="#111827" />
+              </>
+            );
+          })()}
+
+          {/* optional tick labels at 0%, 50%, 100% (left/center/right) */}
+          <text x="28" y={cy + 12} fontSize="10" fill="#374151" textAnchor="middle">
+            {0}
+          </text>
+          <text x={150} y={cy - r - 8 + 150} fontSize="10" fill="#374151" textAnchor="middle" />
+          <text x="272" y={cy + 12} fontSize="10" fill="#374151" textAnchor="middle">
+            {Math.round(max)}
+          </text>
         </svg>
-        <p className="mt-2 font-bold">
-          {val} {resultUnit === "calories" ? "Calories" : "kJ"}
-        </p>
-      </div>
-    );
-  };
 
-  // --- Macro Pie Chart ---
-  const renderMacroPie = (calories) => {
-    const data = [
-      { name: "Protein", value: (calories * macros.protein) / 100 },
-      { name: "Carbs", value: (calories * macros.carbs) / 100 },
-      { name: "Fat", value: (calories * macros.fat) / 100 },
-    ];
-    const COLORS = ["#f87171", "#60a5fa", "#34d399"];
-    return (
-      <PieChart width={300} height={300}>
-        <Pie data={data} cx="50%" cy="50%" outerRadius={100} label>
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index]} />
-          ))}
-        </Pie>
-        <Tooltip />
-        <Legend />
-      </PieChart>
-    );
-  };
-
-  // --- Weight Tables ---
-  const renderWeightTables = (totalCalories) => {
-    const maintain = parseFloat(totalCalories);
-    const lossHalf = maintain - 500;
-    const lossOne = maintain - 1000;
-    const gainHalf = maintain + 500;
-    const gainOne = maintain + 1000;
-
-    return (
-      <div className="mt-6 space-y-6">
-        {/* Weight Loss Table */}
-        <div>
-          <h3 className="text-lg font-semibold text-red-600 mb-2">
-            Weight Loss
-          </h3>
-          <table className="w-full border text-center">
-            <thead className="bg-red-100">
-              <tr>
-                <th className="border px-2 py-1">Goal</th>
-                <th className="border px-2 py-1">Calories/day</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border px-2 py-1">Maintain</td>
-                <td className="border px-2 py-1">{maintain.toFixed(0)}</td>
-              </tr>
-              <tr>
-                <td className="border px-2 py-1">Lose 0.5 kg/week</td>
-                <td className="border px-2 py-1">{lossHalf.toFixed(0)}</td>
-              </tr>
-              <tr>
-                <td className="border px-2 py-1">Lose 1 kg/week</td>
-                <td className="border px-2 py-1">{lossOne.toFixed(0)}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        {/* Weight Gain Table */}
-        <div>
-          <h3 className="text-lg font-semibold text-green-600 mb-2">
-            Weight Gain
-          </h3>
-          <table className="w-full border text-center">
-            <thead className="bg-green-100">
-              <tr>
-                <th className="border px-2 py-1">Goal</th>
-                <th className="border px-2 py-1">Calories/day</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border px-2 py-1">Maintain</td>
-                <td className="border px-2 py-1">{maintain.toFixed(0)}</td>
-              </tr>
-              <tr>
-                <td className="border px-2 py-1">Gain 0.5 kg/week</td>
-                <td className="border px-2 py-1">{gainHalf.toFixed(0)}</td>
-              </tr>
-              <tr>
-                <td className="border px-2 py-1">Gain 1 kg/week</td>
-                <td className="border px-2 py-1">{gainOne.toFixed(0)}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="mt-1 text-center">
+          <div className="text-sm text-gray-600">Estimated daily calories</div>
+          <div className="text-lg font-semibold">
+            {Math.round(val)} {resultUnit === "calories" ? "kcal" : "kJ"}
+          </div>
         </div>
       </div>
     );
-  };
-
-  // --- Macro Sliders ---
-  const handleMacroChange = (type, value) => {
-    let newMacros = { ...macros, [type]: Number(value) };
-    const total = newMacros.protein + newMacros.carbs + newMacros.fat;
-    if (total > 100) {
-      const excess = total - 100;
-      if (type === "protein") {
-        newMacros.carbs -= excess / 2;
-        newMacros.fat -= excess / 2;
-      } else if (type === "carbs") {
-        newMacros.protein -= excess / 2;
-        newMacros.fat -= excess / 2;
-      } else if (type === "fat") {
-        newMacros.protein -= excess / 2;
-        newMacros.carbs -= excess / 2;
-      }
-    }
-    setMacros(newMacros);
   };
 
   return (
-    <div className="p-4 max-w-6xl mx-auto">
-      
+    <div className="p-4 max-w-6xl mx-auto space-y-6">
+      {/* Dynamic result row (appears only when results exist) */}
+      {results && (
+        <section
+          ref={resultRowRef}
+          tabIndex={-1}
+          aria-live="polite"
+          className="border border-blue-200 bg-blue-50 p-4 rounded-lg shadow"
+        >
+          <h2 className="text-center text-xl font-bold text-blue-900 mb-3">Your Daily Calorie Summary</h2>
 
-      <div className="grid md:grid-cols-2 gap-4">
-        {/* Input Column */}
-        <div className="border border-blue-100 shadow p-4 rounded-lg">
-          <div className="flex gap-2 mb-4">
-            <button
-              className={`px-3 py-1 text-white ${
-                unit === "us" ? "bg-blue-900" : "bg-gray-400"
-              }`}
-              onClick={() => setUnit("us")}
-            >
-              US Units
-            </button>
-            <button
-              className={`px-3 py-1 text-white ${
-                unit === "metric" ? "bg-blue-900" : "bg-gray-400"
-              }`}
-              onClick={() => setUnit("metric")}
-            >
-              Metric Units
-            </button>
+          {/* BMR + Total summary */}
+          <div className="flex flex-col md:flex-row justify-center gap-6 mb-3">
+            <div className="text-center">
+              <div className="text-sm text-gray-600">BMR</div>
+              <div className="text-lg font-semibold">{results.bmr} {resultUnit === "calories" ? "kcal" : "kJ"}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-sm text-gray-600">Total (with activity)</div>
+              <div className="text-lg font-semibold">{results.total} {resultUnit === "calories" ? "kcal" : "kJ"}</div>
+            </div>
           </div>
 
+          {/* three parts displayed in parallel on md+ screens */}
+          <div className="flex flex-col md:flex-row gap-4 items-stretch">
+            {/* Gauge */}
+            <div className="md:w-1/3 p-2 flex items-stretch justify-center">
+              <div className="w-full flex justify-center items-start">
+                <SegmentedGauge value={results.total} />
+              </div>
+            </div>
+
+            {/* Weight Loss table */}
+            <div className="md:w-1/3 p-2">
+              <div className="h-full flex items-center">
+                <div className="w-full border rounded p-3 bg-white shadow-sm">
+                  <h3 className="text-center font-semibold text-red-600 mb-2">Weight Loss</h3>
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-red-50">
+                        <th className="p-2 border">Goal</th>
+                        <th className="p-2 border">Calories/day</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-2 border">Maintain</td>
+                        <td className="p-2 border text-center">{Number(results.total).toFixed(0)}</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">Lose 0.5 kg/week</td>
+                        <td className="p-2 border text-center">{(Number(results.total) - 500).toFixed(0)}</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">Lose 1 kg/week</td>
+                        <td className="p-2 border text-center">{(Number(results.total) - 1000).toFixed(0)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            {/* Weight Gain table */}
+            <div className="md:w-1/3 p-2">
+              <div className="h-full flex items-center">
+                <div className="w-full border rounded p-3 bg-white shadow-sm">
+                  <h3 className="text-center font-semibold text-green-600 mb-2">Weight Gain</h3>
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-green-50">
+                        <th className="p-2 border">Goal</th>
+                        <th className="p-2 border">Calories/day</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-2 border">Maintain</td>
+                        <td className="p-2 border text-center">{Number(results.total).toFixed(0)}</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">Gain 0.5 kg/week</td>
+                        <td className="p-2 border text-center">{(Number(results.total) + 500).toFixed(0)}</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">Gain 1 kg/week</td>
+                        <td className="p-2 border text-center">{(Number(results.total) + 1000).toFixed(0)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Main inputs row */}
+      <div className="grid md:grid-cols-2 gap-2">
+        {/* Input column */}
+        <div className="border border-blue-100 shadow p-2 rounded-lg bg-white">
+          
+
           <div className="space-y-3">
+      
+            <div className="flex gap-2">
+              <button
+                onClick={() => setUnit("us")}
+                className={`px-3 py-1 rounded text-white ${unit === "us" ? "bg-blue-900" : "bg-gray-400"}`}
+              >
+                US Units
+              </button>
+              <button
+                onClick={() => setUnit("metric")}
+                className={`px-3 py-1 rounded text-white ${unit === "metric" ? "bg-blue-900" : "bg-gray-400"}`}
+              >
+                Metric Units
+              </button>
+            </div>
+
             <div className="flex items-center gap-2">
               <label className="w-24">Age:</label>
-              <input
-                type="number"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                className="border p-1 flex-1"
-              />
+              <input type="number" value={age} onChange={(e) => setAge(e.target.value)} className="border p-1 flex-1" placeholder="years" />
             </div>
 
             <div>
               <label className="mr-2">Gender:</label>
-              <input
-                type="radio"
-                value="male"
-                checked={gender === "male"}
-                onChange={() => setGender("male")}
-              />{" "}
-              Male
-              <input
-                type="radio"
-                value="female"
-                checked={gender === "female"}
-                onChange={() => setGender("female")}
-                className="ml-2"
-              />{" "}
-              Female
+              <label className="mr-2">
+                <input type="radio" name="gender" value="male" checked={gender === "male"} onChange={() => setGender("male")} /> Male
+              </label>
+              <label>
+                <input type="radio" name="gender" value="female" checked={gender === "female"} onChange={() => setGender("female")} /> Female
+              </label>
             </div>
 
             {unit === "us" ? (
               <div className="flex items-center gap-2">
                 <label className="w-24">Height:</label>
-                <input
-                  type="number"
-                  value={heightFt}
-                  onChange={(e) => setHeightFt(e.target.value)}
-                  className="border p-1 w-20"
-                  placeholder="ft"
-                />
-                <input
-                  type="number"
-                  value={heightIn}
-                  onChange={(e) => setHeightIn(e.target.value)}
-                  className="border p-1 w-20"
-                  placeholder="in"
-                />
+                <input type="number" value={heightFt} onChange={(e) => setHeightFt(e.target.value)} className="border p-1 w-24" placeholder="ft" />
+                <input type="number" value={heightIn} onChange={(e) => setHeightIn(e.target.value)} className="border p-1 w-24" placeholder="in" />
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <label className="w-24">Height:</label>
-                <input
-                  type="number"
-                  value={heightCm}
-                  onChange={(e) => setHeightCm(e.target.value)}
-                  className="border p-1 flex-1"
-                  placeholder="cm"
-                />
+                <label className="w-24">Height (cm):</label>
+                <input type="number" value={heightCm} onChange={(e) => setHeightCm(e.target.value)} className="border p-1 flex-1" placeholder="cm" />
               </div>
             )}
 
             <div className="flex items-center gap-2">
               <label className="w-24">Weight:</label>
-              <input
-                type="number"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                className="border p-1 flex-1 w-36"
-                placeholder={unit === "us" ? "lbs" : "kg"}
-              />
+              <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} className="border p-1 flex-1" placeholder={unit === "us" ? "lbs" : "kg"} />
             </div>
 
             <div className="flex items-center gap-2">
-              <label className="w-20">Activity:</label>
-              <select
-                value={activity}
-                onChange={(e) => setActivity(e.target.value)}
-                className="border p-1 flex-1 w-36"
-              >
+              <label className="w-24">Activity:</label>
+              <select value={activity} onChange={(e) => setActivity(e.target.value)} className="border p-1 flex-1">
                 <option value="bmr">Basal Metabolic Rate (BMR)</option>
                 <option value="sedentary">Sedentary: little/no exercise</option>
                 <option value="light">Light: exercise 1-3x/week</option>
@@ -348,120 +418,72 @@ export default function CalorieCalculator() {
               </select>
             </div>
 
-            {/* Settings */}
-            <div className="mt-4">
-            {/*   <h3 className="font-semibold text-blue-900">Settings</h3> */}
-              <div className="flex items-center gap-2 mt-2">
-                <label className="w-24">Formula:</label>
-                <select
-                  value={formula}
-                  onChange={(e) => setFormula(e.target.value)}
-                  className="border p-1 flex-1"
-                >
-                  <option value="mifflin">Mifflin-St Jeor</option>
-                  <option value="harris">Harris-Benedict</option>
-                  <option value="katch">Katch-McArdle</option>
-                </select>
-              </div>
+            <div className="flex items-center gap-2">
+              <label className="w-24">Formula:</label>
+              <select value={formula} onChange={(e) => setFormula(e.target.value)} className="border p-1 flex-1">
+                <option value="mifflin">Mifflin-St Jeor</option>
+                <option value="harris">Harris-Benedict</option>
+                <option value="katch">Katch-McArdle</option>
+              </select>
+            </div>
 
-              <div className="flex items-center gap-2 mt-2">
-                <label className="w-24">Result:</label>
-                <select
-                  value={resultUnit}
-                  onChange={(e) => setResultUnit(e.target.value)}
-                  className="border p-1 flex-1"
-                >
-                  <option value="calories">Calories</option>
-                  <option value="kilojoules">Kilojoules</option>
-                </select>
-              </div>
+            <div className="flex items-center gap-2">
+              <label className="w-24">Result:</label>
+              <select value={resultUnit} onChange={(e) => setResultUnit(e.target.value)} className="border p-1 flex-1">
+                <option value="calories">Calories</option>
+                <option value="kilojoules">Kilojoules</option>
+              </select>
             </div>
 
             <div className="mt-4 flex gap-2">
-              <button
-                onClick={calculateCalories}
-                className="bg-blue-900 text-white px-4 py-2 rounded"
-              >
+              <button onClick={calculateCalories} className="bg-blue-900 text-white px-4 py-2 rounded">
                 Calculate
               </button>
-              <button
-                onClick={clearForm}
-                className="bg-gray-400 text-white px-4 py-2 rounded"
-              >
+              <button onClick={clearForm} className="bg-gray-400 text-white px-4 py-2 rounded">
                 Clear
               </button>
             </div>
           </div>
         </div>
 
-        {/* Results Column */}
-        <div className="border border-blue-100 shadow p-4 rounded-lg">
-          <h2 className="bg-blue-900 text-white text-center py-2 rounded">
-            Result
-          </h2>
-          <div className="mt-4 space-y-4">
-            {results ? (
-              <>
-                <p>
-                  <span className="font-medium">BMR:</span> {results.bmr}{" "}
-                  {resultUnit === "calories" ? "Calories" : "kJ"}
-                </p>
-                <p>
-                  <span className="font-medium">Total (with activity):</span>{" "}
-                  {results.total} {resultUnit === "calories" ? "Calories" : "kJ"}
-                </p>
+        {/* Right column: remains blank */}
+        <div className="border border-blue-100 shadow p-4 rounded-lg bg-white">
+          <h2 className="bg-blue-900 text-white text-center text-xl font-bold py-2 rounded mb-4">Instruction to Use: </h2>
 
-                {renderGauge(results.total)}
+          {/* Section 1 */}
+          <section>
+            <h3 className="text-lg font-semibold text-gray-700 ">
+              1. Enter Your Personal Information
+            </h3>
+            <ul className="list-disc ml-6 text-gray-600 ">
+              <li><strong>Gender:</strong> Select <em>Male</em> or <em>Female</em> for accurate results.</li>
+              <li><strong>Age:</strong> Enter your current age in years.</li>
+              <li><strong>Height:</strong> Provide your height in centimeters (cm).</li>
+              <li><strong>Weight:</strong> Enter your body weight in kilograms (kg).</li>
+            </ul>
+          </section>
 
-                {/* Macro Sliders */}
-                <div className="mt-4 space-y-3">
-                  <h3 className="text-lg font-semibold">Adjust Macronutrients</h3>
-                  {["protein", "carbs", "fat"].map((m) => (
-                    <div key={m} className="flex items-center gap-2">
-                      <label className="w-24 capitalize">{m}:</label>
-                      <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={macros[m]}
-                        onChange={(e) => handleMacroChange(m, e.target.value)}
-                        className="flex-1"
-                      />
-                      <span>{macros[m]}%</span>
-                    </div>
-                  ))}
-                </div>
+          {/* Section 2 */}
+          <section >
+            <h3 className="text-lg font-semibold text-gray-700 ">
+              2. Choose Your Activity Level
+            </h3>
+            <p className="text-gray-600 ">
+              Select the option that best matches your daily routine:
+            </p>
+        
+        
+          </section>
 
-                <div className="mt-4">
-                  <h3 className="text-lg font-semibold">
-                    Macronutrient Breakdown
-                  </h3>
-                  <ul className="mt-2 space-y-1">
-                    <li>
-                      🥩 Protein: {macros.protein}% (
-                      {((results.total * macros.protein) / 100 / 4).toFixed(0)} g)
-                    </li>
-                    <li>
-                      🍚 Carbs: {macros.carbs}% (
-                      {((results.total * macros.carbs) / 100 / 4).toFixed(0)} g)
-                    </li>
-                    <li>
-                      🥑 Fat: {macros.fat}% (
-                      {((results.total * macros.fat) / 100 / 9).toFixed(0)} g)
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Pie Chart */}
-                <div className="mt-4">{renderMacroPie(results.total)}</div>
-
-                {/* Weight Tables */}
-                {renderWeightTables(results.total)}
-              </>
-            ) : (
-              <p className="text-gray-500 text-center">Enter details to calculate.</p>
-            )}
-          </div>
+          {/* Section 3 */}
+          <section >
+            <h3 className="text-lg font-semibold text-gray-700 mb-2">
+              3. Click the “Calculate” Button
+            </h3>
+            <p className="text-gray-600">
+              After filling in your details, click <strong>Calculate</strong> to view your results.
+            </p>
+          </section>
         </div>
       </div>
     </div>

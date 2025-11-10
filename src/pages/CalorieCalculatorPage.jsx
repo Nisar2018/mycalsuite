@@ -2495,34 +2495,34 @@ export default function calorieCalulatorPage() {
         </div>
 
         {/* Row 1: Calculator */}
-        <div className="bg-white p-4 shadow-lg rounded-xl border-4 border-blue-50">
+        <div className="bg-white p-2 shadow-lg rounded-xl border-4 border-blue-50">
           <CalorieCalculator/>
         </div>
 
         {/* Row 2: Text Section */}
-        <div className="bg-white p-4 shadow-lg rounded-xl space-y-4">
+        <div className="bg-white p-2 shadow-lg rounded-xl space-y-4">
           
-          <div className="max-w-6xl mx-auto p-6 text-gray-800 leading-relaxed">
+          <div className="max-w-6xl mx-auto  text-gray-800 leading-relaxed">
             {/* Header */}
-            <h1 className="text-3xl font-bold text-blue-900 mb-4">
+            <h1 className="text-xl font-bold text-blue-900 mb-4">
               Calorie Calculator: Understanding Your Daily Energy Needs
             </h1>
 
             {/* Section 1 */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-6 mb-2">
+            <h2 className="text-xl  text-blue-900 mt-3 mb-1">
               1. What Is a Calorie?
             </h2>
-            <p>
+            <p className="text-sm" >
               A calorie is a unit of energy that measures how much energy food and
               drinks provide to your body. Every activity you perform — from breathing
               and sleeping to walking and exercising — requires calories.
             </p>
-            <p className="mt-2">
+            <p className="text-sm">
               In nutrition, we actually refer to{" "}
               <strong>kilocalories (kcal)</strong>, where 1 kilocalorie = 1,000
               calories.
             </p>
-            <p className="mt-2">
+            <p className="text-sm">
               Your daily calorie requirement depends on several factors including age,
               gender, weight, height, and physical activity level. Consuming more
               calories than your body needs leads to weight gain, while consuming
@@ -2530,22 +2530,22 @@ export default function calorieCalulatorPage() {
             </p>
 
             {/* Section 2 */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-6 mb-2">
+            <h2 className="text-xl  text-blue-900 mt-3 ">
               2. Understanding Activity Levels
             </h2>
-            <p>
+            <p className="text-sm">
               Your daily calorie expenditure includes both your{" "}
               <strong>Basal Metabolic Rate (BMR)</strong> and your{" "}
               <strong>Activity Level</strong>.
             </p>
-            <p className="mt-2">
+            <p className="text-sm">
               The BMR represents the calories your body burns at rest — just to
               maintain vital functions like breathing, heart rate, and temperature
               regulation. The Activity Level accounts for calories burned during
               physical movement and exercise.
             </p>
 
-            <div className="mt-4 space-y-3">
+            <div className="mt-3 space-y-1 text-sm">
               {[
                 {
                   title: "2.1 Basal Metabolic Rate (BMR)",
@@ -2595,25 +2595,25 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Section 3 */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-6 mb-2">
+            <h2 className="text-xl  text-blue-900 mt-3 ">
               3. Common Formulas for Calculating Calories
             </h2>
-            <p>
+            <p className="text-sm">
               Here are three popular scientific methods to estimate your daily
               caloric needs:
-            </p>
+            </p >
 
-            <div className="mt-4 space-y-4">
+            <div className="mt-3 space-y-2">
               <div>
                 <h3 className="font-semibold text-blue-900">
                   3.1 Harris–Benedict Equation (Revised)
                 </h3>
-                <p>Classic method for calculating BMR.</p>
-                <p>
+                <p className="text-sm">Classic method for calculating BMR.</p>
+                <p className="text-sm">
                   <strong>For Men:</strong> 88.362 + (13.397 × weight in kg) + (4.799
                   × height in cm) − (5.677 × age in years)
                 </p>
-                <p>
+                <p className="text-sm">
                   <strong>For Women:</strong> 447.593 + (9.247 × weight in kg) +
                   (3.098 × height in cm) − (4.330 × age in years)
                 </p>
@@ -2621,12 +2621,12 @@ export default function calorieCalulatorPage() {
 
               <div>
                 <h3 className="font-semibold text-blue-900">3.2 Mifflin–St Jeor Equation</h3>
-                <p>More accurate for modern lifestyles.</p>
-                <p>
+                <p className="text-sm">More accurate for modern lifestyles.</p>
+                <p className="text-sm">
                   <strong>For Men:</strong> (10 × weight in kg) + (6.25 × height in
                   cm) − (5 × age in years) + 5
                 </p>
-                <p>
+                <p className="text-sm">
                   <strong>For Women:</strong> (10 × weight in kg) + (6.25 × height in
                   cm) − (5 × age in years) − 161
                 </p>
@@ -2634,11 +2634,11 @@ export default function calorieCalulatorPage() {
 
               <div>
                 <h3 className="font-semibold text-blue-900">3.3 Katch–McArdle Formula</h3>
-                <p>Ideal for people with known body fat percentage.</p>
-                <p>
+                <p className="text-sm">Ideal for people with known body fat percentage.</p>
+                <p className="text-sm">
                   <strong>Formula:</strong> BMR = 370 + (21.6 × Lean Body Mass in kg)
                 </p>
-                <p>
+                <p className="text-sm">
                   <strong>Where:</strong> Lean Body Mass = (1 − Body Fat %) × Weight
                   in kg
                 </p>
@@ -2646,7 +2646,7 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Section 4 */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-6 mb-2">
+            <h2 className="text-xl font-semibold text-blue-900 mt-3 ">
               4. Summary Table
             </h2>
             <div className="overflow-x-auto">
@@ -2681,25 +2681,25 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Section 5 */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-6 mb-2">
+            <h2 className="text-xl font-semibold text-blue-900 mt-6 mb-2">
               5. Macronutrient Table
             </h2>
-            <p>
+            <p className="text-sm">
               Below is a detailed table showing protein, carbohydrate, and fat content
               in common foods.
             </p>
 
             {/* Macronutrient Table */}
-            <div className="overflow-x-auto mt-4">
+            <div className="overflow-x-auto mt-2">
               <table className="min-w-full border border-gray-300 text-sm text-left">
                 <thead className="bg-blue-50">
                   <tr>
-                    <th className="border px-3 py-2">Food Item</th>
-                    <th className="border px-3 py-2">Protein (g)</th>
-                    <th className="border px-3 py-2">Carbohydrates (g)</th>
-                    <th className="border px-3 py-2">Fat (g)</th>
-                    <th className="border px-3 py-2">Calories (kcal)</th>
-                    <th className="border px-3 py-2">Remarks / Nutritional Note</th>
+                    <th className="border px-1 py-2">Food Item</th>
+                    <th className="border px-1 py-2">Protein (g)</th>
+                    <th className="border px-1 py-2">Carbs (g)</th>
+                    <th className="border px-1 py-2">Fat (g)</th>
+                    <th className="border px-1 py-2">Calories (kcal)</th>
+                    <th className="border px-1 py-2">Remarks / Nutritional Note</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2748,17 +2748,17 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Quick Facts */}
-            <h3 className="text-xl font-semibold text-blue-900 mt-6 mb-2">
+            <h3 className="text-xl font-semibold text-blue-900 mt-3 mb-2">
               5.2 Macronutrient Quick Facts
             </h3>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-300 text-sm text-left">
                 <thead className="bg-blue-50">
                   <tr>
-                    <th className="border px-3 py-2">Macronutrient</th>
-                    <th className="border px-3 py-2">Calories per Gram</th>
-                    <th className="border px-3 py-2">Main Function</th>
-                    <th className="border px-3 py-2">Ideal Daily Range (% of Total Calories)</th>
+                    <th className="border px-1 py-2">Macro- nutrient</th>
+                    <th className="border px-1 py-2">Calories per Gram</th>
+                    <th className="border px-1 py-2">Main Function</th>
+                    <th className="border px-1 py-2">Ideal Daily Range </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2769,7 +2769,7 @@ export default function calorieCalulatorPage() {
                     <td className="border px-3 py-2">10–35%</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Carbohydrates</td>
+                    <td className="border px-3 py-2">Carbs</td>
                     <td className="border px-3 py-2">4 kcal</td>
                     <td className="border px-3 py-2">Primary energy source</td>
                     <td className="border px-3 py-2">45–65%</td>
@@ -2787,10 +2787,10 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* How to Use Table */}
-            <h3 className="text-xl font-semibold text-blue-900 mt-6 mb-2">
+            <h3 className="text-xl font-semibold text-blue-900 mt-3 mb-2">
               5.3 How to Use This Table
             </h3>
-            <ul className="list-disc ml-6 space-y-2">
+            <ul className="text-sm list-disc ml-3 space-y-1">
               <li>
                 <strong>For Weight Loss:</strong> Choose foods high in protein and
                 fiber but low in calories and fat (e.g., chicken breast, lentils, egg
@@ -2806,128 +2806,126 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
           </div>
-          <div className="max-w-5xl mx-auto px-6 py-10 text-gray-800">
-      {/* Header Section */}
-      <h1 className="text-3xl font-bold text-blue-900 mb-4">
-        What Are Advanced Dietary Strategies?
-      </h1>
+          <div className="max-w-5xl mx-auto px-3 py-4 text-gray-800">
+            {/* Header Section */}
+            <h1 className="text-xl font-bold text-blue-900 mb-2">
+              What Are Advanced Dietary Strategies?
+            </h1>
 
-      <p className="mb-4">
-        <strong>Advanced Dietary Strategies</strong> are structured, science-based
-        approaches to nutrition that go beyond simple “calories in vs. calories out.”
-        These methods focus not only on how much you eat, but also on what, when, and
-        how you eat — helping you achieve specific physiological and psychological
-        goals.
-      </p>
+            <p className="mb-2 text-sm">
+              <strong>Advanced Dietary Strategies</strong> are structured, science-based
+              approaches to nutrition that go beyond simple “calories in vs. calories out.”
+              These methods focus not only on how much you eat, but also on what, when, and
+              how you eat — helping you achieve specific physiological and psychological
+              goals.
+            </p>
 
-      <p className="mb-4">
-        Think of it like this:
-        <br />
-        <strong>Basic Dieting:</strong> Driving a car with just an accelerator and brake
-        (calories).
-        <br />
-        <strong>Advanced Dieting:</strong> Driving a manual transmission car, where you
-        strategically use gears and timing (nutrient cycling, fasting, meal timing) for
-        better performance and efficiency.
-      </p>
+            <p className="mb-2 text-sm">
+              Think of it like this:
+              <br />
+              <strong>Basic Dieting:</strong> Driving a car with just an accelerator and brake
+              (calories).
+              <br />
+              <strong>Advanced Dieting:</strong> Driving a manual transmission car, where you
+              strategically use gears and timing (nutrient cycling, fasting, meal timing) for
+              better performance and efficiency.
+            </p>
 
-      {/* Core Principles */}
-      <h2 className="text-2xl font-semibold text-blue-900 mb-3">
-        Core Principles of Advanced Strategies
-      </h2>
-      <ul className="list-disc pl-6 space-y-2 mb-6">
-        <li>
-          <strong>Metabolic Manipulation:</strong> Preventing or reversing the slowdown
-          in metabolism that often occurs with long-term calorie restriction.
-        </li>
-        <li>
-          <strong>Hormonal Optimization:</strong> Regulating key hormones like insulin,
-          leptin, and cortisol to improve fat-burning and energy balance.
-        </li>
-        <li>
-          <strong>Nutrient Timing:</strong> Placing carbohydrates and proteins
-          strategically around workouts for better recovery and performance.
-        </li>
-        <li>
-          <strong>Psychological Sustainability:</strong> Including planned breaks or
-          refeeds to maintain motivation and prevent diet burnout.
-        </li>
-        <li>
-          <strong>Nutrient Partitioning:</strong> Directing nutrients (especially
-          carbohydrates) toward muscle recovery instead of fat storage.
-        </li>
-      </ul>
+            {/* Core Principles */}
+            <h2 className="text-xl font-semibold text-blue-900 mb-2">
+              Core Principles of Advanced Strategies
+            </h2>
+            <ul className="text-sm list-disc pl-3 space-y-2 mb-2">
+              <li>
+                <strong>Metabolic Manipulation:</strong> Preventing or reversing the slowdown
+                in metabolism that often occurs with long-term calorie restriction.
+              </li>
+              <li>
+                <strong>Hormonal Optimization:</strong> Regulating key hormones like insulin,
+                leptin, and cortisol to improve fat-burning and energy balance.
+              </li>
+              <li>
+                <strong>Nutrient Timing:</strong> Placing carbohydrates and proteins
+                strategically around workouts for better recovery and performance.
+              </li>
+              <li>
+                <strong>Psychological Sustainability:</strong> Including planned breaks or
+                refeeds to maintain motivation and prevent diet burnout.
+              </li>
+              <li>
+                <strong>Nutrient Partitioning:</strong> Directing nutrients (especially
+                carbohydrates) toward muscle recovery instead of fat storage.
+              </li>
+            </ul>
 
-      {/* Key Characteristics Table */}
-      <h2 className="text-2xl font-semibold text-blue-900 mb-3">
-        Key Characteristics
-      </h2>
-      <div className="overflow-x-auto mb-8">
-        <table className="min-w-full border border-gray-300 text-sm text-left">
-          <thead className="bg-blue-50 text-blue-900">
-            <tr>
-              <th className="border px-4 py-2">Sl#</th>
-              <th className="border px-4 py-2">Feature</th>
-              <th className="border px-4 py-2">Basic Dieting</th>
-              <th className="border px-4 py-2">Advanced Dieting</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border px-4 py-2">1</td>
-              <td className="border px-4 py-2">Focus</td>
-              <td className="border px-4 py-2">Total Daily Calorie Intake</td>
-              <td className="border px-4 py-2">
-                Calories, Macronutrients, Timing, Cycling
-              </td>
-            </tr>
-            <tr>
-              <td className="border px-4 py-2">2</td>
-              <td className="border px-4 py-2">Complexity</td>
-              <td className="border px-4 py-2">Simple, static targets</td>
-              <td className="border px-4 py-2">
-                Dynamic, requires planning & tracking
-              </td>
-            </tr>
-            <tr>
-              <td className="border px-4 py-2">3</td>
-              <td className="border px-4 py-2">Goal</td>
-              <td className="border px-4 py-2">
-                Create a consistent calorie deficit/surplus
-              </td>
-              <td className="border px-4 py-2">
-                Optimize metabolism, hormones, and performance
-              </td>
-            </tr>
-            <tr>
-              <td className="border px-4 py-2">4</td>
-              <td className="border px-4 py-2">Best For</td>
-              <td className="border px-4 py-2">
-                Beginners, simple weight management
-              </td>
-              <td className="border px-4 py-2">
-                Athletes, bodybuilders, experienced dieters
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      
-
+            {/* Key Characteristics Table */}
+            <h2 className="text-xl font-semibold text-blue-900 mb-2">
+              Key Characteristics
+            </h2>
+            <div className="overflow-x-auto mb-2">
+              <table className="min-w-full border border-gray-300 text-sm text-left">
+                <thead className="bg-blue-50 text-blue-900">
+                  <tr>
+                    <th className="border px-1 py-1">Sl#</th>
+                    <th className="border px-1 py-1">Feature</th>
+                    <th className="border px-1 py-1">Basic Dieting</th>
+                    <th className="border px-1 py-1">Advanced Dieting</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border p-1">1</td>
+                    <td className="border p-1">Focus</td>
+                    <td className="border p-1">Total Daily Calorie Intake</td>
+                    <td className="border p-1">
+                      Calories, Macronutrients, Timing, Cycling
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border p-1">2</td>
+                    <td className="border p-1">Complexity</td>
+                    <td className="border p-1">Simple, static targets</td>
+                    <td className="border p-1">
+                      Dynamic, requires planning & tracking
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border p-1">3</td>
+                    <td className="border p-1">Goal</td>
+                    <td className="border p-1">
+                      Create a consistent calorie deficit/surplus
+                    </td>
+                    <td className="border p-1">
+                      Optimize metabolism, hormones, and performance
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border p-1">4</td>
+                    <td className="border p-1">Best For</td>
+                    <td className="border p-1">
+                      Beginners, simple weight management
+                    </td>
+                    <td className="border p-1">
+                      Athletes, bodybuilders, experienced dieters
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>        
-          <div className="p-6 max-w-5xl mx-auto text-gray-800 leading-relaxed">
+          
+          <div className="px-3 max-w-5xl mx-auto text-gray-800 leading-relaxed">
             {/* Main Header */}
-            <h1 className="text-3xl font-bold text-blue-900 mb-6 text-center">
+            <h1 className="text-xl font-bold text-blue-900 mb-2 ">
               Advanced Dietary Strategies Tools of Nutrition
             </h1>
 
             {/* Sub Header */}
-            <h2 className="text-2xl font-semibold text-blue-900 mb-4">
+            <h2 className="text-xl  text-blue-900 mb-2">
               1. Zigzag Calorie Cycling
             </h2>
 
-            <p className="mb-4">
+            <p className="mb-2 text-sm">
               <strong>Zigzag Calorie Cycling</strong> (also called Calorie Zigzagging
               or Caloric Rotation) is a flexible dieting method where you alternate
               your daily calorie intake—some days are higher in calories, and some
@@ -2936,7 +2934,7 @@ export default function calorieCalulatorPage() {
               with eating the same number of calories every day.
             </p>
 
-            <p className="mb-6">
+            <p className="mb-2 text-sm">
               In essence, it’s about changing daily calories while maintaining the
               same weekly average — giving your body and mind a break from consistent
               restriction.
@@ -2946,7 +2944,7 @@ export default function calorieCalulatorPage() {
             <h3 className="text-xl font-semibold text-blue-900 mb-3">
               Detailed Explanation
             </h3>
-            <p className="mb-4">
+            <p className="mb-2 text-sm">
               When you eat the exact same number of calories every day, your body
               adapts. Over time, metabolism slows, fat loss stalls, and energy levels
               drop. Zigzag calorie cycling interrupts this adaptation by varying
@@ -2954,7 +2952,7 @@ export default function calorieCalulatorPage() {
               your motivation higher.
             </p>
 
-            <ul className="list-disc list-inside mb-6">
+            <ul className="text-sm list-disc list-inside mb-2">
               <li>Weight loss programs (to prevent metabolic slowdown)</li>
               <li>Body recomposition phases (to lose fat and maintain/gain muscle)</li>
               <li>
@@ -2965,7 +2963,7 @@ export default function calorieCalulatorPage() {
 
             {/* How It Works */}
             <h3 className="text-xl font-semibold text-blue-900 mb-3">How It Works</h3>
-            <ol className="list-decimal list-inside mb-6 space-y-2">
+            <ol className="list-decimal list-inside mb-2 text-sm space-y-2">
               <li>
                 <strong>Determine your weekly maintenance calories:</strong>  
                 Example: Maintenance = 2,400 kcal/day → 16,800 kcal/week (2,400 × 7).
@@ -2977,57 +2975,57 @@ export default function calorieCalulatorPage() {
             </ol>
 
             {/* Table Example 1 */}
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-2">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Day</th>
-                    <th className="border px-3 py-2">Calories</th>
+                    <th className="border p-1">Day</th>
+                    <th className="border p-1">alories</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">Monday</td>
-                    <td className="border px-3 py-2">1,800 (Low)</td>
+                    <td className="border p-1">Monday</td>
+                    <td className="border p-1">1,800 (Low)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Tuesday</td>
-                    <td className="border px-3 py-2">2,300 (Medium)</td>
+                    <td className="border p-1">Tuesday</td>
+                    <td className="border p-1">2,300 (Medium)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Wednesday</td>
-                    <td className="border px-3 py-2">1,900 (Low)</td>
+                    <td className="border p-1">Wednesday</td>
+                    <td className="border p-1">1,900 (Low)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Thursday</td>
-                    <td className="border px-3 py-2">2,400 (High)</td>
+                    <td className="border p-1">Thursday</td>
+                    <td className="border p-1">2,400 (High)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Friday</td>
-                    <td className="border px-3 py-2">1,800 (Low)</td>
+                    <td className="border p-1">Friday</td>
+                    <td className="border p-1">1,800 (Low)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Saturday</td>
-                    <td className="border px-3 py-2">2,600 (High/Refuel)</td>
+                    <td className="border p-1">Saturday</td>
+                    <td className="border p-1">2,600 (High/Refuel)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Sunday</td>
-                    <td className="border px-3 py-2">2,000 (Medium)</td>
+                    <td className="border p-1">Sunday</td>
+                    <td className="border p-1">2,000 (Medium)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <p className="mb-6">
+            <p className="text-sm mb-2">
               Weekly Total = 14,800 kcal (avg 2,114/day) → moderate calorie deficit
               but metabolism stays active.
             </p>
 
             {/* Scientific Principle */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Scientific Principle Behind It
             </h3>
-            <ul className="list-disc list-inside mb-6">
+            <ul className="text-sm list-disc list-inside mb-2">
               <li>
                 Constant calorie restriction can suppress leptin (hunger hormone) and
                 slow down metabolism.
@@ -3046,8 +3044,8 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* Merits */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">Merits</h3>
-            <ul className="list-disc list-inside mb-6">
+            <h3 className="text-xl  text-blue-900 mb-3">Merits</h3>
+            <ul className="text-sm list-disc list-inside mb-2">
               <li>Prevents metabolic slowdown</li>
               <li>Better adherence and flexibility</li>
               <li>Improved muscle retention and energy for training</li>
@@ -3055,8 +3053,8 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* Demerits */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">Demerits</h3>
-            <ul className="list-disc list-inside mb-6">
+            <h3 className="text-xl  text-blue-900 mb-3">Demerits</h3>
+            <ul className="text-sm list-disc list-inside mb-2">
               <li>Complex to plan and track</li>
               <li>Risk of overeating on high-calorie days</li>
               <li>Progress depends on total weekly intake</li>
@@ -3064,43 +3062,43 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* Summary Table */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">Summary Table</h3>
-            <div className="overflow-x-auto mb-6">
+            <h3 className="text-xl  text-blue-900 mb-3">Summary Table</h3>
+            <div className="overflow-x-auto mb-2">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Aspect</th>
-                    <th className="border px-3 py-2">Description</th>
+                    <th className="border p-1">Aspect</th>
+                    <th className="border p-1">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">Definition</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Definition</td>
+                    <td className="border p-1">
                       Alternating daily calorie intake while maintaining weekly average
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Primary Goal</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Primary Goal</td>
+                    <td className="border p-1">
                       Prevent metabolic slowdown, support fat loss while preserving muscle
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Best For</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Best For</td>
+                    <td className="border p-1">
                       Intermediate/advanced dieters, athletes, bodybuilders
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Key Benefit</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Key Benefit</td>
+                    <td className="border p-1">
                       Avoids plateaus and keeps metabolism active
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Main Drawback</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Main Drawback</td>
+                    <td className="border p-1">
                       Planning complexity and potential for overeating
                     </td>
                   </tr>
@@ -3109,75 +3107,75 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Practical Example */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Practical Example (Simple Plan for 2000 kcal average goal)
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-2">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Day</th>
-                    <th className="border px-3 py-2">Goal</th>
-                    <th className="border px-3 py-2">Calories</th>
-                    <th className="border px-3 py-2">Focus</th>
+                    <th className="border p-1">Day</th>
+                    <th className="border p-1">Goal</th>
+                    <th className="border p-1">Calories</th>
+                    <th className="border p-1">Focus</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">Monday</td>
-                    <td className="border px-3 py-2">Low</td>
-                    <td className="border px-3 py-2">1600</td>
-                    <td className="border px-3 py-2">High protein, low carb</td>
+                    <td className="border p-1">Monday</td>
+                    <td className="border p-1">Low</td>
+                    <td className="border p-1">1600</td>
+                    <td className="border p-1">High protein, low carb</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Tuesday</td>
-                    <td className="border px-3 py-2">High</td>
-                    <td className="border px-3 py-2">2400</td>
-                    <td className="border px-3 py-2">Training day, more carbs</td>
+                    <td className="border p-1">Tuesday</td>
+                    <td className="border p-1">High</td>
+                    <td className="border p-1">2400</td>
+                    <td className="border p-1">Training day, more carbs</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Wednesday</td>
-                    <td className="border px-3 py-2">Medium</td>
-                    <td className="border px-3 py-2">2000</td>
-                    <td className="border px-3 py-2">Balanced intake</td>
+                    <td className="border p-1">Wednesday</td>
+                    <td className="border p-1">Medium</td>
+                    <td className="border p-1">2000</td>
+                    <td className="border p-1">Balanced intake</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Thursday</td>
-                    <td className="border px-3 py-2">Low</td>
-                    <td className="border px-3 py-2">1700</td>
-                    <td className="border px-3 py-2">Active rest</td>
+                    <td className="border p-1">Thursday</td>
+                    <td className="border p-1">Low</td>
+                    <td className="border p-1">1700</td>
+                    <td className="border p-1">Active rest</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Friday</td>
-                    <td className="border px-3 py-2">High</td>
-                    <td className="border px-3 py-2">2500</td>
-                    <td className="border px-3 py-2">Heavy workout</td>
+                    <td className="border p-1">Friday</td>
+                    <td className="border p-1">High</td>
+                    <td className="border p-1">2500</td>
+                    <td className="border p-1">Heavy workout</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Saturday</td>
-                    <td className="border px-3 py-2">Medium</td>
-                    <td className="border px-3 py-2">2000</td>
-                    <td className="border px-3 py-2">Balanced</td>
+                    <td className="border p-1">Saturday</td>
+                    <td className="border p-1">Medium</td>
+                    <td className="border p-1">2000</td>
+                    <td className="border p-1">Balanced</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Sunday</td>
-                    <td className="border px-3 py-2">Low</td>
-                    <td className="border px-3 py-2">1600</td>
-                    <td className="border px-3 py-2">Rest day</td>
+                    <td className="border p-1">Sunday</td>
+                    <td className="border p-1">Low</td>
+                    <td className="border p-1">1600</td>
+                    <td className="border p-1">Rest day</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <p className="mb-6">
+            <p className="text-sm mb-3">
               Weekly total = 13,800 kcal (average = 1,971 kcal/day) → still a deficit,
               but your metabolism stays active.
             </p>
 
             {/* Conclusion */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">Conclusion</h3>
-            <p>
+            <h3 className="text-xl  text-blue-900 mb-3">Conclusion</h3>
+            <p className="text-sm"> 
               <strong>Zigzag Calorie Cycling</strong> is a smart, adaptable nutrition
               strategy that alternates calorie intake to keep your metabolism active,
               improve adherence, and support long-term fat loss. It’s not magic —
@@ -3186,13 +3184,13 @@ export default function calorieCalulatorPage() {
               to activity levels and psychological needs.
             </p>
           </div>
-          <div className="p-6 max-w-5xl mx-auto text-gray-800 leading-relaxed">
+          <div className="px-3 max-w-5xl mx-auto text-gray-800 leading-relaxed">
             {/* Sub Header */}
-            <h2 className="text-2xl font-semibold text-blue-900 mb-4">
+            <h2 className="text-xl font-semibold text-blue-900 mb-2">
               2. Carb Cycling
             </h2>
 
-            <p className="mb-4">
+            <p className="text-sm mb-2">
               <strong>Carb Cycling</strong> is a dietary strategy where you alternate
               your carbohydrate intake on different days — typically switching between
               high-carb, low-carb, and sometimes no-carb days. The main goal is to
@@ -3201,24 +3199,24 @@ export default function calorieCalulatorPage() {
               insulin resistance).
             </p>
 
-            <p className="mb-4">
+            <p className="text-sm mb-2">
               Carb Cycling is a planned manipulation of carbohydrate intake based on
               your training intensity, body composition goals, or metabolic needs. It
               is often used by athletes, bodybuilders, and fitness enthusiasts to:
             </p>
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="text-sm list-disc list-inside mb-2">
               <li>Maximize fat loss</li>
               <li>Preserve lean muscle mass</li>
               <li>Improve training performance</li>
             </ul>
 
-            <p className="mb-6">
+            <p className="text-sm mb-2">
               Instead of consuming the same number of carbs every day, you adjust your
               intake to fit your energy expenditure.
             </p>
 
-            <ul className="list-disc list-inside mb-6">
+            <ul className="text-sm list-disc list-inside mb-2">
               <li>
                 <strong>High-Carb Days →</strong> On intense workout or training days
               </li>
@@ -3232,16 +3230,16 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* How It Works */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               How Carb Cycling Works
             </h3>
-            <p className="mb-4">
+            <p className="text-sm mb-2">
               Carbohydrates are the body’s primary source of energy. When you eat
               carbs, your body releases insulin, a hormone that helps store glucose
               (from carbs) as energy in muscles or fat cells.
             </p>
 
-            <p className="mb-4">
+            <p className="text-sm mb-2">
               By cycling carbs:
               <br />• On high-carb days, you refill muscle glycogen stores → improving
               workout performance and recovery.
@@ -3249,110 +3247,110 @@ export default function calorieCalulatorPage() {
               energy → aiding fat loss.
             </p>
 
-            <p className="mb-6">
+            <p className="text-sm mb-2">
               This cycle aims to balance fat burning and muscle building depending on
               your goals.
             </p>
 
             {/* Example Weekly Carb Cycling Plan */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Example Weekly Carb Cycling Plan
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-2">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Day</th>
-                    <th className="border px-3 py-2">Carb Level</th>
-                    <th className="border px-3 py-2">Purpose</th>
+                    <th className="border p-1">Day</th>
+                    <th className="border p-1">Carb Level</th>
+                    <th className="border p-1">Purpose</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">Monday</td>
-                    <td className="border px-3 py-2">High-Carb</td>
-                    <td className="border px-3 py-2">Leg workout (intense day)</td>
+                    <td className="border p-1">Monday</td>
+                    <td className="border p-1">High-Carb</td>
+                    <td className="border p-1">Leg workout (intense day)</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Tuesday</td>
-                    <td className="border px-3 py-2">Low-Carb</td>
-                    <td className="border px-3 py-2">Rest day</td>
+                    <td className="border p-1">Tuesday</td>
+                    <td className="border p-1">Low-Carb</td>
+                    <td className="border p-1">Rest day</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Wednesday</td>
-                    <td className="border px-3 py-2">Moderate-Carb</td>
-                    <td className="border px-3 py-2">Upper body workout</td>
+                    <td className="border p-1">Wednesday</td>
+                    <td className="border p-1">Moderate-Carb</td>
+                    <td className="border p-1">Upper body workout</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Thursday</td>
-                    <td className="border px-3 py-2">Low-Carb</td>
-                    <td className="border px-3 py-2">Light cardio</td>
+                    <td className="border p-1">Thursday</td>
+                    <td className="border p-1">Low-Carb</td>
+                    <td className="border p-1">Light cardio</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Friday</td>
-                    <td className="border px-3 py-2">High-Carb</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Friday</td>
+                    <td className="border p-1">High-Carb</td>
+                    <td className="border p-1">
                       Full-body strength training
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Saturday</td>
-                    <td className="border px-3 py-2">Moderate-Carb</td>
-                    <td className="border px-3 py-2">Active recovery</td>
+                    <td className="border p-1">Saturday</td>
+                    <td className="border p-1">Moderate-Carb</td>
+                    <td className="border p-1">Active recovery</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Sunday</td>
-                    <td className="border px-3 py-2">Low-Carb</td>
-                    <td className="border px-3 py-2">Rest day</td>
+                    <td className="border p-1">Sunday</td>
+                    <td className="border p-1">Low-Carb</td>
+                    <td className="border p-1">Rest day</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             {/* Macronutrient Ratio Table */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Typical Macronutrient Ratio per Day
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Type of Day</th>
-                    <th className="border px-3 py-2">Carbs</th>
-                    <th className="border px-3 py-2">Protein</th>
-                    <th className="border px-3 py-2">Fat</th>
+                    <th className="border p-1">Type of Day</th>
+                    <th className="border p-1">Carbs</th>
+                    <th className="border p-1">Protein</th>
+                    <th className="border p-1">Fat</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">High-Carb</td>
-                    <td className="border px-3 py-2">50–60%</td>
-                    <td className="border px-3 py-2">25–30%</td>
-                    <td className="border px-3 py-2">15–20%</td>
+                    <td className="border p-1">High-Carb</td>
+                    <td className="border p-1">50–60%</td>
+                    <td className="border p-1">25–30%</td>
+                    <td className="border p-1">15–20%</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Moderate-Carb</td>
-                    <td className="border px-3 py-2">35–45%</td>
-                    <td className="border px-3 py-2">30–35%</td>
-                    <td className="border px-3 py-2">25–30%</td>
+                    <td className="border p-1">Moderate-Carb</td>
+                    <td className="border p-1">35–45%</td>
+                    <td className="border p-1">30–35%</td>
+                    <td className="border p-1">25–30%</td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Low-Carb</td>
-                    <td className="border px-3 py-2">10–20%</td>
-                    <td className="border px-3 py-2">40–50%</td>
-                    <td className="border px-3 py-2">30–40%</td>
+                    <td className="border p-1">Low-Carb</td>
+                    <td className="border p-1">10–20%</td>
+                    <td className="border p-1">40–50%</td>
+                    <td className="border p-1">30–40%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             {/* Merits */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Merits (Advantages) of Carb Cycling
             </h3>
-            <ul className="list-decimal list-inside mb-6 space-y-1">
+            <ul className="text-sm list-decimal list-inside mb-3 space-y-1">
               <li>
                 <strong>Enhanced Fat Loss:</strong> Low-carb days reduce insulin and
                 boost fat oxidation.
@@ -3380,10 +3378,10 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* Demerits */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Demerits (Disadvantages) of Carb Cycling
             </h3>
-            <ul className="list-decimal list-inside mb-6 space-y-1">
+            <ul className="text-sm list-decimal list-inside mb-3 space-y-1">
               <li>Complex to plan and track carbs accurately</li>
               <li>Energy fluctuations and fatigue on low-carb days</li>
               <li>Risk of overeating on high-carb days</li>
@@ -3393,49 +3391,49 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* Who Can Benefit */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Who Can Benefit from Carb Cycling
             </h3>
-            <ul className="list-disc list-inside mb-6">
+            <ul className="text-sm list-disc list-inside mb-3 ">
               <li>Athletes or bodybuilders in cutting/bulking cycles</li>
               <li>People experienced with tracking macros</li>
               <li>Those hitting fat-loss plateaus</li>
             </ul>
 
-            <p className="mb-6">
+            <p className="text-sm mb-3">
               Not ideal for beginners, individuals with eating disorders, or those with
               blood sugar problems.
             </p>
 
             {/* Sample Foods Table */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Sample Foods for Each Carb Day
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Carb Day</th>
-                    <th className="border px-3 py-2">Food Examples</th>
+                    <th className="border p-1">Carb Day</th>
+                    <th className="border p-1">Food Examples</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">High-Carb</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">High-Carb</td>
+                    <td className="border p-1">
                       Brown rice, quinoa, oats, sweet potatoes, fruits, whole grains
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Moderate-Carb</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Moderate-Carb</td>
+                    <td className="border p-1">
                       Beans, lentils, starchy vegetables, yogurt
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Low-Carb</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Low-Carb</td>
+                    <td className="border p-1">
                       Leafy greens, eggs, fish, avocados, nuts, olive oil
                     </td>
                   </tr>
@@ -3444,38 +3442,38 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Summary Table */}
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">Summary</h3>
+            <h3 className="text-xl  text-blue-900 mb-3">Summary</h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100">
                   <tr>
-                    <th className="border px-3 py-2">Aspect</th>
-                    <th className="border px-3 py-2">Description</th>
+                    <th className="border p-1">Aspect</th>
+                    <th className="border p-1">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-3 py-2">Concept</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Concept</td>
+                    <td className="border p-1">
                       Alternating carb intake based on activity level
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Goal</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Goal</td>
+                    <td className="border p-1">
                       Maximize fat loss and muscle gain while maintaining energy
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Key Benefit</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Key Benefit</td>
+                    <td className="border p-1">
                       Flexibility, improved metabolism, and performance
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-3 py-2">Key Drawback</td>
-                    <td className="border px-3 py-2">
+                    <td className="border p-1">Key Drawback</td>
+                    <td className="border p-1">
                       Complex tracking and potential inconsistency
                     </td>
                   </tr>
@@ -3483,14 +3481,14 @@ export default function calorieCalulatorPage() {
               </table>
             </div>
           </div>
-          <div className="p-6 space-y-6 text-gray-800">
+          <div className="p-2 space-y-2 text-gray-800">
             {/* Main Header */}
-            <h1 className="text-3xl font-bold text-blue-900 mb-4">
+            <h1 className="text-xl font-bold text-blue-900 mb-2">
               3. Intermittent Fasting (IF)
             </h1>
 
             {/* Intro */}
-            <p>
+            <p className="text-sm">
               <strong>Intermittent Fasting (IF)</strong> is a structured eating pattern that alternates
               between periods of eating and fasting. Unlike traditional diets that focus on
               <em> what to eat</em>, intermittent fasting focuses on <em>when to eat</em>. It’s not about
@@ -3498,33 +3496,33 @@ export default function calorieCalulatorPage() {
               improve metabolism, fat burning, and cellular repair.
             </p>
 
-            <p>
+            <p className="text-sm">
               During fasting, your body:
-              <ul className="list-disc list-inside ml-4">
+              <ul className="text-sm list-disc list-inside ml-3">
                 <li>Reduces insulin levels</li>
                 <li>Uses stored body fat for energy</li>
                 <li>Activates autophagy — a natural process of cellular repair</li>
               </ul>
             </p>
 
-            <p>
+            <p className="text-sm">
               IF doesn’t prescribe specific foods — instead, it focuses on timing your meals to optimize
               body function and metabolism.
             </p>
 
             {/* Subheader */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl  text-blue-900 mt-2">
               Popular Intermittent Fasting Methods
             </h2>
 
             {/* Table 1 */}
             <div className="overflow-x-auto">
-              <table className="min-w-full border border-gray-300 mt-3 text-sm">
+              <table className="min-w-full border border-gray-300 mt-2 text-sm">
                 <thead className="bg-gray-100 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2 text-left">IF Method</th>
-                    <th className="border px-4 py-2 text-left">Fasting : Eating Window</th>
-                    <th className="border px-4 py-2 text-left">Description</th>
+                    <th className="border p-1 text-left">IF Method</th>
+                    <th className="border p-1 text-left">Fasting : Eating Window</th>
+                    <th className="border p-1 text-left">Description</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3538,9 +3536,9 @@ export default function calorieCalulatorPage() {
                     ["OMAD", "23-hour fast, 1-hour eat", "Advanced fasting form"],
                   ].map(([method, window, desc], i) => (
                     <tr key={i}>
-                      <td className="border px-4 py-2">{method}</td>
-                      <td className="border px-4 py-2">{window}</td>
-                      <td className="border px-4 py-2">{desc}</td>
+                      <td className="border p-1">{method}</td>
+                      <td className="border p-1">{window}</td>
+                      <td className="border p-1">{desc}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -3548,13 +3546,13 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* How it Works */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl text-blue-900 mt-3">
               How Intermittent Fasting Works
             </h2>
             <p>
               When you eat, your body uses glucose (from carbs) as its main energy source. During fasting:
             </p>
-            <ol className="list-decimal list-inside ml-4">
+            <ol className="text-sm list-decimal list-inside ml-3">
               <li>Insulin levels drop → fat stores are unlocked.</li>
               <li>Growth hormone increases → helps preserve muscle and burn fat.</li>
               <li>Cells begin repair (autophagy) → removing old or damaged components.</li>
@@ -3562,15 +3560,15 @@ export default function calorieCalulatorPage() {
             </ol>
 
             {/* Table 2 */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl  text-blue-900 mt-3">
               Physiological Effects of IF
             </h2>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-300 mt-3 text-sm">
                 <thead className="bg-gray-100 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2 text-left">Effect</th>
-                    <th className="border px-4 py-2 text-left">Description</th>
+                    <th className="border p-1 text-left">Effect</th>
+                    <th className="border p-1 text-left">Description</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3582,8 +3580,8 @@ export default function calorieCalulatorPage() {
                     ["↑ Ketone Production", "Provides alternative fuel for the brain"],
                   ].map(([effect, desc], i) => (
                     <tr key={i}>
-                      <td className="border px-4 py-2">{effect}</td>
-                      <td className="border px-4 py-2">{desc}</td>
+                      <td className="border p-1">{effect}</td>
+                      <td className="border p-1">{desc}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -3591,15 +3589,15 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Example Schedule */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl  text-blue-900 mt-3">
               Example: 16/8 IF Daily Schedule
             </h2>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-300 mt-3 text-sm">
                 <thead className="bg-gray-100 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2 text-left">Time</th>
-                    <th className="border px-4 py-2 text-left">Action</th>
+                    <th className="border p-1 text-left">Time</th>
+                    <th className="border p-1 text-left">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3612,8 +3610,8 @@ export default function calorieCalulatorPage() {
                     ["8:00 PM", "Start fasting again"],
                   ].map(([time, action], i) => (
                     <tr key={i}>
-                      <td className="border px-4 py-2">{time}</td>
-                      <td className="border px-4 py-2">{action}</td>
+                      <td className="border p-1">{time}</td>
+                      <td className="border p-1">{action}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -3621,10 +3619,10 @@ export default function calorieCalulatorPage() {
             </div>
 
             {/* Foods */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl font-semibold text-blue-900 mt-3">
               What to Eat During Eating Window
             </h2>
-            <ul className="list-disc list-inside ml-4">
+            <ul className="text-sm list-disc list-inside ml-3">
               <li><strong>Protein:</strong> Chicken, fish, eggs, Greek yogurt</li>
               <li><strong>Healthy fats:</strong> Avocado, olive oil, nuts, seeds</li>
               <li><strong>Complex carbs:</strong> Quinoa, oats, sweet potatoes, whole grains</li>
@@ -3633,10 +3631,10 @@ export default function calorieCalulatorPage() {
             </ul>
 
             {/* Merits */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl  text-blue-900 mt-3">
               Merits (Advantages) of Intermittent Fasting
             </h2>
-            <ol className="list-decimal list-inside ml-4 space-y-1">
+            <ol className="text-sm list-decimal list-inside ml-3 space-y-1">
               <li>Promotes Fat Loss</li>
               <li>Improves Insulin Sensitivity</li>
               <li>Supports Cellular Repair (Autophagy)</li>
@@ -3647,10 +3645,10 @@ export default function calorieCalulatorPage() {
             </ol>
 
             {/* Demerits */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl text-blue-900 mt-4">
               Demerits (Disadvantages) of Intermittent Fasting
             </h2>
-            <ol className="list-decimal list-inside ml-4 space-y-1">
+            <ol className="text-sm list-decimal list-inside ml-3 space-y-1">
               <li>Initial Hunger and Irritability</li>
               <li>Overeating During Eating Window</li>
               <li>May Affect Hormonal Balance (in Women)</li>
@@ -3660,15 +3658,15 @@ export default function calorieCalulatorPage() {
             </ol>
 
             {/* Summary */}
-            <h2 className="text-2xl font-semibold text-blue-900 mt-8">
+            <h2 className="text-xl  text-blue-900 mt-4">
               Summary Table
             </h2>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-300 mt-3 text-sm">
                 <thead className="bg-gray-100 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2 text-left">Aspect</th>
-                    <th className="border px-4 py-2 text-left">Description</th>
+                    <th className="border p-1 text-left">Aspect</th>
+                    <th className="border p-1 text-left">Description</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3681,8 +3679,8 @@ export default function calorieCalulatorPage() {
                     ["Suitable For", "Intermediate or advanced dieters, not beginners"],
                   ].map(([aspect, desc], i) => (
                     <tr key={i}>
-                      <td className="border px-4 py-2">{aspect}</td>
-                      <td className="border px-4 py-2">{desc}</td>
+                      <td className="border p-1">{aspect}</td>
+                      <td className="border p-1">{desc}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -3690,42 +3688,42 @@ export default function calorieCalulatorPage() {
             </div>
           </div>
           <div className="max-w-4xl mx-auto p-6 text-gray-800">
-            <h1 className="text-3xl font-bold text-blue-900 mb-4">4. Refeed Days</h1>
+            <h1 className="text-2xl font-bold text-blue-900 mb-3">4. Refeed Days</h1>
 
-            <p className="mb-4">
+            <p className="text-sm mb-3">
               A <strong>Refeed Day</strong> is a planned, temporary increase in calorie
               (mainly carbohydrate) intake after several days or weeks of eating in a
               calorie deficit. It’s not a cheat day. The purpose is strategic — to:
             </p>
 
-            <ul className="list-disc pl-6 mb-4">
+            <ul className="text-sm list-disc pl-3 mb-3">
               <li>Replenish glycogen stores (muscle energy)</li>
               <li>Restore hormonal balance, especially leptin and thyroid hormones</li>
               <li>Boost metabolism temporarily</li>
               <li>Provide mental and physical relief from dieting fatigue</li>
             </ul>
 
-            <p className="mb-4 font-medium text-blue-900">
+            <p className="text-sm mb-3 font-medium text-blue-900">
               In short: A refeed day helps your body and mind recover from continuous
               calorie restriction.
             </p>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h2 className="text-xl text-blue-900 mb-2">
               How Refeed Days Work
             </h2>
-            <p className="mb-4">
+            <p className="text-sm mb-3">
               When you’re in a calorie deficit (eating less than you burn), your body
               loses fat but also slows down metabolism over time:
             </p>
 
-            <ul className="list-disc pl-6 mb-4">
+            <ul className="text-sm list-disc pl-3 mb-3">
               <li>Leptin (hunger-regulating hormone) drops</li>
               <li>Thyroid hormones (T3/T4) reduce, slowing fat burning</li>
               <li>Glycogen levels decrease, causing fatigue</li>
               <li>Cortisol (stress hormone) may rise</li>
             </ul>
 
-            <p className="mb-4">
+            <p className="text-sm mb-3">
               By temporarily raising carbs and calories, you signal to your body:{" "}
               <strong>“Food is available — you can safely keep burning fat.”</strong>
               <br />
@@ -3733,46 +3731,46 @@ export default function calorieCalulatorPage() {
               progress.
             </p>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h2 className="text-xl  text-blue-900 mb-3">
               Key Difference: Refeed Day vs Cheat Day
             </h2>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="w-full border border-gray-300 text-sm text-left">
                 <thead className="bg-blue-50 text-blue-900">
                   <tr>
-                    <th className="border p-2">Aspect</th>
-                    <th className="border p-2">Refeed Day</th>
-                    <th className="border p-2">Cheat Day</th>
+                    <th className="border p-1">Aspect</th>
+                    <th className="border p-1">Refeed Day</th>
+                    <th className="border p-1">Cheat Day</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border p-2">Purpose</td>
-                    <td className="border p-2">Hormonal & metabolic reset</td>
-                    <td className="border p-2">Indulgence or break from diet</td>
+                    <td className="border p-1">Purpose</td>
+                    <td className="border p-1">Hormonal & metabolic reset</td>
+                    <td className="border p-1">Indulgence or break from diet</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Focus</td>
-                    <td className="border p-2">Controlled carb increase</td>
-                    <td className="border p-2">Uncontrolled food intake</td>
+                    <td className="border p-1">Focus</td>
+                    <td className="border p-1">Controlled carb increase</td>
+                    <td className="border p-1">Uncontrolled food intake</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Calorie Control</td>
-                    <td className="border p-2">Slight surplus (~10–30%)</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Calorie Control</td>
+                    <td className="border p-1">Slight surplus (~10–30%)</td>
+                    <td className="border p-1">
                       Often large surplus (can double maintenance)
                     </td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Food Quality</td>
-                    <td className="border p-2">Clean, complex carbs</td>
-                    <td className="border p-2">Junk, high-fat, processed foods</td>
+                    <td className="border p-1">Food Quality</td>
+                    <td className="border p-1">Clean, complex carbs</td>
+                    <td className="border p-1">Junk, high-fat, processed foods</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Goal</td>
-                    <td className="border p-2">Support long-term fat loss</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Goal</td>
+                    <td className="border p-1">Support long-term fat loss</td>
+                    <td className="border p-1">
                       Psychological relief, often leads to guilt
                     </td>
                   </tr>
@@ -3780,75 +3778,75 @@ export default function calorieCalulatorPage() {
               </table>
             </div>
 
-            <p className="mb-6">
+            <p className="text-sm mb-3">
               A refeed is planned, calculated, and clean, while a cheat day is
               impulsive and often counterproductive.
             </p>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h2 className="text-xl  text-blue-900 mb-2">
               How to Implement a Refeed Day
             </h2>
 
-            <h3 className="text-xl font-semibold text-blue-900 mt-4 mb-2">1. Frequency</h3>
-            <ul className="list-disc pl-6 mb-4">
+            <h3 className="text-xl  text-blue-900 mt-4 mb-2">1. Frequency</h3>
+            <ul className="text-sm list-disc pl-3 mb-3">
               <li>Every 7–14 days for moderate calorie deficits</li>
               <li>Every 2–3 weeks for smaller deficits</li>
               <li>Athletes or lean individuals may need it weekly</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               2. Macronutrient Adjustments
             </h3>
-            <ul className="list-disc pl-6 mb-4">
+            <ul className="text-sm list-disc pl-3 mb-3">
               <li>Carbs: Increase by 50–100% (primary energy source)</li>
               <li>Protein: Keep the same (muscle protection)</li>
               <li>Fats: Keep low to moderate (to avoid excessive calories)</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               3. Calorie Increase Example
             </h3>
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="w-full border border-gray-300 text-sm text-left">
                 <thead className="bg-blue-50 text-blue-900">
                   <tr>
-                    <th className="border p-2">Type</th>
-                    <th className="border p-2">Normal Day</th>
-                    <th className="border p-2">Refeed Day</th>
+                    <th className="border p-1">Type</th>
+                    <th className="border p-1">Normal Day</th>
+                    <th className="border p-1">Refeed Day</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border p-2">Calories</td>
-                    <td className="border p-2">1,800 kcal</td>
-                    <td className="border p-2">2,200–2,400 kcal</td>
+                    <td className="border p-1">Calories</td>
+                    <td className="border p-1">1,800 kcal</td>
+                    <td className="border p-1">2,200–2,400 kcal</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Carbs</td>
-                    <td className="border p-2">150 g</td>
-                    <td className="border p-2">250–300 g</td>
+                    <td className="border p-1">Carbs</td>
+                    <td className="border p-1">150 g</td>
+                    <td className="border p-1">250–300 g</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Protein</td>
-                    <td className="border p-2">150 g</td>
-                    <td className="border p-2">150 g</td>
+                    <td className="border p-1">Protein</td>
+                    <td className="border p-1">150 g</td>
+                    <td className="border p-1">150 g</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Fat</td>
-                    <td className="border p-2">60 g</td>
-                    <td className="border p-2">50 g</td>
+                    <td className="border p-1">Fat</td>
+                    <td className="border p-1">60 g</td>
+                    <td className="border p-1">50 g</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h2 className="text-xl text-blue-900 mb-2">
               Sample Refeed Day Foods
             </h2>
 
-            <p className="mb-2">Focus on complex, low-fat carbohydrates to refill glycogen without excessive fat gain:</p>
-            <p className="font-semibold mb-1">Good Choices:</p>
-            <ul className="list-disc pl-6 mb-4">
+            <p className="text-sm mb-2">Focus on complex, low-fat carbohydrates to refill glycogen without excessive fat gain:</p>
+            <p className="text-sm font-semibold mb-1">Good Choices:</p>
+            <ul className="list-disc pl-3 mb-3 text-sm">
               <li>Brown rice, quinoa, oats</li>
               <li>Sweet potatoes, whole-grain pasta</li>
               <li>Fruits (bananas, apples, berries)</li>
@@ -3856,18 +3854,18 @@ export default function calorieCalulatorPage() {
               <li>Lentils and beans</li>
             </ul>
 
-            <p className="font-semibold mb-1">Avoid:</p>
-            <ul className="list-disc pl-6 mb-6">
+            <p className="text-sm font-semibold mb-1">Avoid:</p>
+            <ul className="list-disc pl-3 mb-3 text-sm">
               <li>Fried foods</li>
               <li>Sugary desserts</li>
               <li>Alcohol</li>
               <li>High-fat junk (pizza, burgers, etc.)</li>
             </ul>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h2 className="text-xl  text-blue-900 mb-2">
               Merits (Advantages) of Refeed Days
             </h2>
-            <ul className="list-disc pl-6 mb-6">
+            <ul className="list-disc pl-3 mb-3 text-sm">
               <li>Restores leptin levels and reduces hunger</li>
               <li>Prevents metabolic slowdown</li>
               <li>Replenishes muscle glycogen</li>
@@ -3876,10 +3874,10 @@ export default function calorieCalulatorPage() {
               <li>Reduces plateau risk</li>
             </ul>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h2 className="text-xl  text-blue-900 mb-2">
               Demerits (Disadvantages) of Refeed Days
             </h2>
-            <ul className="list-disc pl-6 mb-6">
+            <ul className="list-disc pl-3 mb-3 text-sm">
               <li>Can lead to overeating if not tracked properly</li>
               <li>May cause temporary water weight gain</li>
               <li>Requires discipline and control</li>
@@ -3887,72 +3885,72 @@ export default function calorieCalulatorPage() {
               <li>Can cause digestive discomfort from sudden carb increase</li>
             </ul>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h2 className="text-xl  text-blue-900 mb-2">
               Who Should Use Refeed Days
             </h2>
-            <p className="font-semibold mb-1">Best For:</p>
-            <ul className="list-disc pl-6 mb-4">
+            <p className="text-sm font-semibold mb-1">Best For:</p>
+            <ul className="list-disc pl-3 mb-3 text-sm">
               <li>People dieting for fat loss over 6+ weeks</li>
               <li>Athletes, bodybuilders, or intense trainers</li>
               <li>Leaner individuals (&lt;15% body fat for men, &lt;25% for women)</li>
             </ul>
 
-            <p className="font-semibold mb-1">Avoid / Not Needed If:</p>
-            <ul className="list-disc pl-6 mb-6">
+            <p className="text-sm font-semibold mb-1">Avoid / Not Needed If:</p>
+            <ul className="list-disc pl-3 mb-3 text-sm">
               <li>You’re new to dieting or early in fat loss</li>
               <li>You’re not in a calorie deficit</li>
               <li>You struggle with portion control</li>
             </ul>
 
-            <h2 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h2 className="text-xl  text-blue-900 mb-3">
               Summary Table
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full border border-gray-300 text-sm text-left">
                 <thead className="bg-blue-50 text-blue-900">
                   <tr>
-                    <th className="border p-2">Aspect</th>
-                    <th className="border p-2">Description</th>
+                    <th className="border p-1">Aspect</th>
+                    <th className="border p-1">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border p-2">Definition</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Definition</td>
+                    <td className="border p-1">
                       Planned increase in carbs/calories to restore metabolism and hormones
                     </td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Goal</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Goal</td>
+                    <td className="border p-1">
                       Prevent fat loss plateau, support performance
                     </td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Main Nutrient Increased</td>
-                    <td className="border p-2">Carbohydrates</td>
+                    <td className="border p-1">Main Nutrient Increased</td>
+                    <td className="border p-1">Carbohydrates</td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Frequency</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Frequency</td>
+                    <td className="border p-1">
                       Every 1–2 weeks (based on activity and leanness)
                     </td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Key Benefits</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Key Benefits</td>
+                    <td className="border p-1">
                       Boosts metabolism, leptin, mood, and training energy
                     </td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Key Drawbacks</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Key Drawbacks</td>
+                    <td className="border p-1">
                       Risk of overeating, water gain, requires discipline
                     </td>
                   </tr>
                   <tr>
-                    <td className="border p-2">Ideal For</td>
-                    <td className="border p-2">
+                    <td className="border p-1">Ideal For</td>
+                    <td className="border p-1">
                       Experienced dieters or athletes under calorie restriction
                     </td>
                   </tr>
@@ -3961,21 +3959,21 @@ export default function calorieCalulatorPage() {
             </div>
           </div>
           <div className="max-w-5xl mx-auto p-6 text-gray-800 leading-relaxed">
-        <h1 className="text-3xl font-bold text-blue-900 mb-4">
+        <h1 className="text-xl font-bold text-blue-900 mb-3">
           5. Protein Sparing Modified Fast (PSMF)
         </h1>
 
-        <p className="mb-4">
+        <p className="text-sm mb-3">
           The <strong>Protein Sparing Modified Fast (PSMF)</strong> is a very
           low-calorie, high-protein, low-carbohydrate, and low-fat diet designed
           to maximize fat loss while preserving lean muscle mass. The concept is
           simple:
-          <span className="italic block text-blue-900 mt-1">
+          <span className="text-sm italic block text-blue-900 mt-1">
             “Lose fat fast, but spare your muscle.”
           </span>
         </p>
 
-        <p className="mb-4">
+        <p className="text-sm mb-3">
           It is not a permanent diet — typically used for short-term, medically
           supervised rapid fat loss phases (often 2–12 weeks). Originally developed
           in the 1970s for obese patients, it’s now popular among advanced fitness
@@ -3983,119 +3981,119 @@ export default function calorieCalulatorPage() {
         </p>
 
         {/* How it works */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+        <h2 className="text-xl  text-blue-900 mb-2">
           How PSMF Works
         </h2>
-        <p className="mb-4">
+        <p className="text-sm mb-3">
           When you drastically cut calories, your body tends to burn muscle along
           with fat for energy. PSMF prevents muscle loss by supplying adequate
           protein while restricting carbs and fats to push the body into
           fat-burning mode.
         </p>
 
-        <p className="font-semibold mb-2">Mechanism:</p>
-        <ol className="list-decimal pl-6 mb-4">
+        <p className="text-sm font-semibold mb-2">Mechanism:</p>
+        <ol className="list-decimal pl-3 mb-3 text-sm">
           <li>Low carbs → deplete glycogen → promote fat oxidation (fat burning).</li>
           <li>Low fat intake → forces body to use stored fat for energy.</li>
           <li>High protein → preserves lean muscle and supports recovery.</li>
           <li>Calorie deficit → leads to rapid fat loss.</li>
         </ol>
 
-        <p className="mb-6">
+        <p className="text-sm mb-3">
           It’s essentially a scientifically controlled fasting protocol that
           provides just enough nutrients to sustain vital functions.
         </p>
 
         {/* Macronutrient Table */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-3">
+        <h2 className="text-xl  text-blue-900 mb-3">
           Typical Macronutrient Ratios
         </h2>
-        <div className="overflow-x-auto mb-6">
+        <div className="overflow-x-auto mb-3">
           <table className="w-full border border-gray-300 text-sm text-left">
             <thead className="bg-blue-50 text-blue-900">
               <tr>
-                <th className="border p-2">Nutrient</th>
-                <th className="border p-2">Approximate % of Calories</th>
-                <th className="border p-2">Purpose</th>
+                <th className="border p-1">Nutrient</th>
+                <th className="border p-1">Appr. % of Calories</th>
+                <th className="border p-1">Purpose</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border p-2">Protein</td>
-                <td className="border p-2">60–70%</td>
-                <td className="border p-2">Muscle preservation</td>
+                <td className="border p-1">Protein</td>
+                <td className="border p-1">60–70%</td>
+                <td className="border p-1">Muscle preservation</td>
               </tr>
               <tr>
-                <td className="border p-2">Carbohydrates</td>
-                <td className="border p-2">5–10%</td>
-                <td className="border p-2">Minimal for metabolism</td>
+                <td className="border p-1">Carbohydrates</td>
+                <td className="border p-1">5–10%</td>
+                <td className="border p-1">Minimal for metabolism</td>
               </tr>
               <tr>
-                <td className="border p-2">Fat</td>
-                <td className="border p-2">10–20%</td>
-                <td className="border p-2">Only from lean protein sources</td>
+                <td className="border p-1">Fat</td>
+                <td className="border p-1">10–20%</td>
+                <td className="border p-1">Only from lean protein sources</td>
               </tr>
               <tr>
-                <td className="border p-2">Calories</td>
-                <td className="border p-2">600–1,000 kcal/day (approx.)</td>
-                <td className="border p-2">Deep caloric deficit</td>
+                <td className="border p-1">Calories</td>
+                <td className="border p-1">600–1,000 kcal/day (approx.)</td>
+                <td className="border p-1">Deep caloric deficit</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         {/* Protein Requirement */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+        <h2 className="text-xl  text-blue-900 mb-2">
           Protein Requirement
         </h2>
-        <p className="mb-4">
+        <p className="text-sm mb-3">
           Protein intake is based on <strong>lean body mass (LBM)</strong> — not
           total weight. Recommended intake:
         </p>
-        <p className="mb-4">
+        <p className="text-sm mb-3">
           👉 <strong>1.2–1.5 grams of protein per pound of lean body mass (LBM)</strong>
         </p>
-        <p className="mb-4">
+        <p className="text-sm mb-3">
           Example: If a person has 150 lb LBM, daily protein = <strong>180–225 g</strong>.
           Protein sources should be very lean to minimize fat intake.
         </p>
 
         {/* Typical Foods */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-3">
+        <h2 className="text-xl  text-blue-900 mb-3">
           Typical Foods Allowed on PSMF
         </h2>
-        <div className="overflow-x-auto mb-6">
+        <div className="overflow-x-auto mb-3">
           <table className="w-full border border-gray-300 text-sm text-left">
             <thead className="bg-blue-50 text-blue-900">
               <tr>
-                <th className="border p-2">Category</th>
-                <th className="border p-2">Examples</th>
+                <th className="border p-1">Category</th>
+                <th className="border p-1">Examples</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border p-2">Lean Proteins</td>
-                <td className="border p-2">
+                <td className="border p-1">Lean Proteins</td>
+                <td className="border p-1">
                   Chicken breast, turkey, white fish (cod, tilapia), shrimp, egg whites
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Low-Fat Dairy (optional)</td>
-                <td className="border p-2">Non-fat Greek yogurt, cottage cheese</td>
+                <td className="border p-1">Low-Fat Dairy (optional)</td>
+                <td className="border p-1">Non-fat Greek yogurt, cottage cheese</td>
               </tr>
               <tr>
-                <td className="border p-2">Low-Carb Vegetables</td>
-                <td className="border p-2">
+                <td className="border p-1">Low-Carb Vegetables</td>
+                <td className="border p-1">
                   Spinach, lettuce, cucumber, broccoli, cauliflower, zucchini
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Drinks</td>
-                <td className="border p-2">Water, green tea, black coffee</td>
+                <td className="border p-1">Drinks</td>
+                <td className="border p-1">Water, green tea, black coffee</td>
               </tr>
               <tr>
-                <td className="border p-2">Supplements</td>
-                <td className="border p-2">
+                <td className="border p-1">Supplements</td>
+                <td className="border p-1">
                   Multivitamin, potassium, sodium, magnesium, fish oil
                 </td>
               </tr>
@@ -4103,64 +4101,64 @@ export default function calorieCalulatorPage() {
           </table>
         </div>
 
-        <p className="font-semibold mb-1">Avoid:</p>
-        <ul className="list-disc pl-6 mb-6">
+        <p className="text-sm font-semibold mb-1">Avoid:</p>
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>All grains, fruits, and starchy vegetables</li>
           <li>Dairy with fat</li>
           <li>Oils, butter, nuts, seeds, sugary drinks, alcohol</li>
         </ul>
 
         {/* Phases */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">Phases of PSMF</h2>
-        <p className="font-semibold">Rapid Fat Loss Phase (Active Phase)</p>
-        <ul className="list-disc pl-6 mb-4">
+        <h2 className="text-xl  text-blue-900 mb-2">Phases of PSMF</h2>
+        <p className="text-sm font-semibold">Rapid Fat Loss Phase (Active Phase)</p>
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>2–6 weeks (up to 12 weeks under supervision)</li>
           <li>Strict adherence to protein + vegetables only</li>
         </ul>
 
-        <p className="font-semibold">Refeed / Transition Phase</p>
-        <ul className="list-disc pl-6 mb-6">
+        <p className="text-sm font-semibold">Refeed / Transition Phase</p>
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>Gradual reintroduction of carbohydrates and fats</li>
           <li>Prevents rebound weight gain</li>
           <li>Typically lasts 2–4 weeks</li>
         </ul>
 
         {/* Physiological Effects */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-3">
+        <h2 className="text-xl  text-blue-900 mb-3">
           Physiological Effects
         </h2>
-        <div className="overflow-x-auto mb-6">
+        <div className="overflow-x-auto mb-3">
           <table className="w-full border border-gray-300 text-sm text-left">
             <thead className="bg-blue-50 text-blue-900">
               <tr>
-                <th className="border p-2">Effect</th>
-                <th className="border p-2">Description</th>
+                <th className="border p-1">Effect</th>
+                <th className="border p-1">Description</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border p-2">Fat Loss</td>
-                <td className="border p-2">Rapid due to severe calorie deficit</td>
+                <td className="border p-1">Fat Loss</td>
+                <td className="border p-1">Rapid due to severe calorie deficit</td>
               </tr>
               <tr>
-                <td className="border p-2">Muscle Preservation</td>
-                <td className="border p-2">
+                <td className="border p-1">Muscle Preservation</td>
+                <td className="border p-1">
                   Maintained through high protein intake
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Insulin Reduction</td>
-                <td className="border p-2">
+                <td className="border p-1">Insulin Reduction</td>
+                <td className="border p-1">
                   Stabilizes blood sugar and promotes fat metabolism
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Glycogen Depletion</td>
-                <td className="border p-2">Encourages stored fat use</td>
+                <td className="border p-1">Glycogen Depletion</td>
+                <td className="border p-1">Encourages stored fat use</td>
               </tr>
               <tr>
-                <td className="border p-2">Ketosis (partial)</td>
-                <td className="border p-2">
+                <td className="border p-1">Ketosis (partial)</td>
+                <td className="border p-1">
                   Some individuals may enter mild ketosis
                 </td>
               </tr>
@@ -4169,10 +4167,10 @@ export default function calorieCalulatorPage() {
         </div>
 
         {/* Merits */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+        <h2 className="text-xl  text-blue-900 mb-2">
           Merits (Advantages) of PSMF
         </h2>
-        <ul className="list-disc pl-6 mb-6">
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>Extremely rapid fat loss (1.5–2.5 kg per week in early phases)</li>
           <li>Preserves muscle mass</li>
           <li>Improves insulin sensitivity and glucose control</li>
@@ -4182,10 +4180,10 @@ export default function calorieCalulatorPage() {
         </ul>
 
         {/* Demerits */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+        <h2 className="text-xl  text-blue-900 mb-2">
           Demerits (Disadvantages) of PSMF
         </h2>
-        <ul className="list-disc pl-6 mb-6">
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>
             Nutrient deficiency risk — requires supplements for vitamins and minerals
           </li>
@@ -4197,18 +4195,18 @@ export default function calorieCalulatorPage() {
         </ul>
 
         {/* Who Should Use */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+        <h2 className="text-xl  text-blue-900 mb-2">
           Who Should Use PSMF
         </h2>
-        <p className="font-semibold mb-1">Ideal Candidates:</p>
-        <ul className="list-disc pl-6 mb-4">
+        <p className="text-sm font-semibold mb-1">Ideal Candidates:</p>
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>Severely overweight or obese individuals needing fast results</li>
           <li>Athletes or bodybuilders before competition</li>
           <li>People under professional or medical supervision</li>
         </ul>
 
-        <p className="font-semibold mb-1">Not Suitable For:</p>
-        <ul className="list-disc pl-6 mb-6">
+        <p className="text-sm font-semibold mb-1">Not Suitable For:</p>
+        <ul className="list-disc pl-3 mb-3 text-sm">
           <li>Children or pregnant/breastfeeding women</li>
           <li>Individuals with kidney, liver, or heart conditions</li>
           <li>Those prone to eating disorders</li>
@@ -4216,57 +4214,57 @@ export default function calorieCalulatorPage() {
         </ul>
 
         {/* Summary Table */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-3">
+        <h2 className="text-xl  text-blue-900 mb-3">
           Summary Table
         </h2>
-        <div className="overflow-x-auto mb-6">
+        <div className="overflow-x-auto mb-3">
           <table className="w-full border border-gray-300 text-sm text-left">
             <thead className="bg-blue-50 text-blue-900">
               <tr>
-                <th className="border p-2">Aspect</th>
-                <th className="border p-2">Description</th>
+                <th className="border p-1">Aspect</th>
+                <th className="border p-1">Description</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border p-2">Definition</td>
-                <td className="border p-2">
+                <td className="border p-1">Definition</td>
+                <td className="border p-1">
                   High-protein, very-low-calorie, low-carb, low-fat diet for rapid fat loss
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Main Goal</td>
-                <td className="border p-2">
+                <td className="border p-1">Main Goal</td>
+                <td className="border p-1">
                   Preserve muscle while losing fat quickly
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Calories/day</td>
-                <td className="border p-2">600–1,000 kcal</td>
+                <td className="border p-1">Calories/day</td>
+                <td className="border p-1">600–1,000 kcal</td>
               </tr>
               <tr>
-                <td className="border p-2">Protein Intake</td>
-                <td className="border p-2">1.2–1.5 g/lb of lean mass</td>
+                <td className="border p-1">Protein Intake</td>
+                <td className="border p-1">1.2–1.5 g/lb of lean mass</td>
               </tr>
               <tr>
-                <td className="border p-2">Duration</td>
-                <td className="border p-2">2–12 weeks (short term)</td>
+                <td className="border p-1">Duration</td>
+                <td className="border p-1">2–12 weeks (short term)</td>
               </tr>
               <tr>
-                <td className="border p-2">Key Benefits</td>
-                <td className="border p-2">
+                <td className="border p-1">Key Benefits</td>
+                <td className="border p-1">
                   Rapid fat loss, muscle preservation, improved metabolic health
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Key Drawbacks</td>
-                <td className="border p-2">
+                <td className="border p-1">Key Drawbacks</td>
+                <td className="border p-1">
                   Nutrient deficiency, energy crash, hard to sustain, rebound risk
                 </td>
               </tr>
               <tr>
-                <td className="border p-2">Supervision Needed</td>
-                <td className="border p-2">
+                <td className="border p-1">Supervision Needed</td>
+                <td className="border p-1">
                   Yes — ideally medical or professional
                 </td>
               </tr>
@@ -4275,10 +4273,10 @@ export default function calorieCalulatorPage() {
         </div>
 
         {/* Conclusion */}
-        <h2 className="text-2xl font-semibold text-blue-900 mb-2">
+        <h2 className="text-xl  text-blue-900 mb-2">
           In Simple Terms
         </h2>
-        <p>
+        <p className="text-sm">
           Think of PSMF as:{" "}
           <span className="italic text-blue-900">
             “A scientifically controlled crash diet that keeps your muscles safe
@@ -4288,12 +4286,12 @@ export default function calorieCalulatorPage() {
           structured exit plan.
         </p>
           </div>
-          <div className="p-6 text-gray-800">
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">
+          <div className="px-3 text-gray-800">
+            <h2 className="text-xl font-bold text-blue-900 mb-3">
               6. Calorie/Carb Backloading
             </h2>
 
-            <p className="mb-4">
+            <p className="text-sm mb-3">
               <strong>Calorie/Carb Backloading</strong> is a nutritional strategy
               designed to optimize energy use, fat loss, and muscle gain by consuming
               the majority of daily carbohydrates and/or calories later in the day,
@@ -4303,7 +4301,7 @@ export default function calorieCalulatorPage() {
               efficiently.
             </p>
 
-            <p className="mb-4">
+            <p className="text-sm mb-3">
               In traditional diets, people are advised to eat balanced meals
               throughout the day, including carbohydrates at breakfast for energy.
               However, Calorie or Carb Backloading challenges this by suggesting that
@@ -4312,11 +4310,11 @@ export default function calorieCalulatorPage() {
               utilization.
             </p>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Typical Daily Pattern
             </h3>
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm ">
               <li>
                 <strong>Morning to Afternoon (Low Carb/Low Calorie Phase):</strong>{" "}
                 Focus on protein and fats; very few or no carbs. Keeps insulin levels
@@ -4333,11 +4331,11 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Scientific Basis
             </h3>
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>
                 <strong>Insulin Sensitivity:</strong> Muscles are more
                 insulin-sensitive post-exercise, meaning carbs eaten then are less
@@ -4354,8 +4352,8 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">Merits (Advantages)</h3>
-            <ul className="list-disc list-inside mb-4">
+            <h3 className="text-xl  text-blue-900 mb-2">Merits (Advantages)</h3>
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Enhanced fat burning through low-carb mornings.</li>
               <li>Improved glycogen replenishment and muscle recovery post-workout.</li>
               <li>Better energy timing — carbs used for repair, not fat storage.</li>
@@ -4364,10 +4362,10 @@ export default function calorieCalulatorPage() {
               <li>Reduced hunger and cravings throughout the day.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Demerits (Disadvantages)
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Not suitable for morning exercisers — relies on evening workouts.</li>
               <li>Possible daytime fatigue due to low-carb mornings.</li>
               <li>Risk of overeating at night if portions are uncontrolled.</li>
@@ -4375,68 +4373,68 @@ export default function calorieCalulatorPage() {
               <li>Less effective for people with insulin resistance or diabetes.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Who Can Benefit Most
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Individuals training in the late afternoon or evening.</li>
               <li>Those focused on fat loss while maintaining muscle mass.</li>
               <li>People who prefer larger dinners and smaller breakfasts.</li>
               <li>Those comfortable with intermittent fasting or delayed meals.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Summary Table
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="min-w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2 text-left">Aspect</th>
-                    <th className="border px-4 py-2 text-left">Description</th>
+                    <th className="border p-1 text-left">Aspect</th>
+                    <th className="border p-1 text-left">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Concept</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1font-medium">Concept</td>
+                    <td className="border p-1">
                       Eating most carbs/calories in the evening, post-workout
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Goal</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1 font-medium">Goal</td>
+                    <td className="border p-1">
                       Maximize fat burning and muscle gain
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Best For</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1 font-medium">Best For</td>
+                    <td className="border p-1">
                       Evening exercisers, fat loss, and body recomposition
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Main Advantage</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1 font-medium">Main Advantage</td>
+                    <td className="border p-1">
                       Better nutrient partitioning (carbs → muscles, not fat)
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Main Disadvantage</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1 font-medium">Main Disadvantage</td>
+                    <td className="border p-1">
                       Low energy during the day; not ideal for morning workouts
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Scientific Support</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1 font-medium">Scientific Support</td>
+                    <td className="border p-1">
                       Moderate — backed by insulin sensitivity and hormonal studies
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Sustainability</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1 font-medium">Sustainability</td>
+                    <td className="border p-1">
                       Moderate — requires timing discipline
                     </td>
                   </tr>
@@ -4444,16 +4442,16 @@ export default function calorieCalulatorPage() {
               </table>
             </div>
 
-            <p className="italic text-gray-700">
+            <p className="italic text-gray-700 text-sm">
               In summary, Calorie/Carb Backloading can be a powerful method to improve
               fat metabolism and muscle recovery — especially for evening exercisers
               — but it requires mindful timing and portion control to be effective.
             </p>
           </div>
-          <div className="p-6 text-gray-800 leading-relaxed">
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">7. Reverse Dieting</h2>
+          <div className="px-3 text-gray-800 leading-relaxed">
+            <h2 className="text-xl  text-blue-900 mb-3">7. Reverse Dieting</h2>
 
-            <p className="mb-4">
+            <p className="text-sm mb-3">
               <strong>Reverse dieting</strong> is the deliberate, gradual increase of calorie
               intake after a period of dieting or restriction. The goal is to restore
               your metabolic rate, normalize hormones and appetite, and transition
@@ -4462,8 +4460,8 @@ export default function calorieCalulatorPage() {
               rather than an immediate return to pre-diet eating habits.
             </p>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">How It Works</h3>
-            <ul className="list-disc list-inside mb-4">
+            <h3 className="text-xl  text-blue-900 mb-2">How It Works</h3>
+            <ul className="list-disc list-inside text-sm mb-3">
               <li>During dieting, metabolism slows, appetite hormones shift, and glycogen stores drop.</li>
               <li>
                 Reverse dieting adds small calorie increments (usually weekly) to help
@@ -4475,10 +4473,10 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Typical Protocol
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside text-sm mb-3">
               <li>Assess current intake, body weight trend, and activity level.</li>
               <li>
                 Add small calorie increments weekly — usually +50 to +100 kcal per
@@ -4498,58 +4496,58 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">Example</h3>
-            <p className="mb-4">
+            <h3 className="text-xl  text-blue-900 mb-2">Example</h3>
+            <p className="text-sm mb-3">
               <strong>Current intake:</strong> 1,400 kcal/day  
               <br />
               <strong>Maintenance goal:</strong> 2,000 kcal/day (difference: 600 kcal)
             </p>
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside text-sm mb-3">
               <li>+50 kcal/week → ~12 weeks to reach 2,000 kcal</li>
               <li>+100 kcal/week → ~6 weeks to reach 2,000 kcal</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Example Target Macros (at 2,000 kcal)
             </h3>
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="min-w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-100 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2 text-left">Macronutrient</th>
-                    <th className="border px-4 py-2 text-left">Percentage</th>
-                    <th className="border px-4 py-2 text-left">Calories</th>
-                    <th className="border px-4 py-2 text-left">Grams</th>
+                    <th className="border p-1 text-left">Macronutrient</th>
+                    <th className="border p-1 text-left">Percentage</th>
+                    <th className="border p-1  text-left">Calories</th>
+                    <th className="border p-1  text-left">Grams</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Protein</td>
-                    <td className="border px-4 py-2">30%</td>
-                    <td className="border px-4 py-2">600 kcal</td>
-                    <td className="border px-4 py-2">150 g</td>
+                    <td className="border p-1  font-medium">Protein</td>
+                    <td className="border p-1 ">30%</td>
+                    <td className="border p-1 ">600 kcal</td>
+                    <td className="border p-1 ">150 g</td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Fat</td>
-                    <td className="border px-4 py-2">25%</td>
-                    <td className="border px-4 py-2">500 kcal</td>
-                    <td className="border px-4 py-2">~55.6 g</td>
+                    <td className="border p-1  font-medium">Fat</td>
+                    <td className="border p-1 ">25%</td>
+                    <td className="border p-1 ">500 kcal</td>
+                    <td className="border p-1 ">~55.6 g</td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2 font-medium">Carbohydrates</td>
-                    <td className="border px-4 py-2">45%</td>
-                    <td className="border px-4 py-2">900 kcal</td>
-                    <td className="border px-4 py-2">225 g</td>
+                    <td className="border p-1  font-medium">Carbohydrates</td>
+                    <td className="border p-1 ">45%</td>
+                    <td className="border p-1 ">900 kcal</td>
+                    <td className="border p-1 ">225 g</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Why People Use Reverse Dieting
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Recover from metabolic adaptation and restore energy levels.</li>
               <li>Reduce extreme hunger and food cravings.</li>
               <li>Improve training performance and recovery.</li>
@@ -4557,10 +4555,10 @@ export default function calorieCalulatorPage() {
               <li>Transition to maintenance calories without bingeing.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Merits (Advantages)
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Smoother metabolic recovery with gradual increases.</li>
               <li>Better control of fat regain and improved energy.</li>
               <li>Enhanced training and recovery from added carbs.</li>
@@ -4568,10 +4566,10 @@ export default function calorieCalulatorPage() {
               <li>Helps establish sustainable maintenance eating habits.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Demerits (Disadvantages)
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Slow process — takes weeks or months to complete.</li>
               <li>May not fully “reset” metabolism for everyone.</li>
               <li>Requires consistent tracking and discipline.</li>
@@ -4579,28 +4577,28 @@ export default function calorieCalulatorPage() {
               <li>Results vary by individual body response.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Who It’s Best For
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>People finishing a long or steep diet.</li>
               <li>Fitness competitors or those recovering from restriction.</li>
               <li>Anyone patient and comfortable tracking progress.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl text-blue-900 mb-2">
               Be Cautious / Consult a Professional If:
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>You have a history of eating disorders.</li>
               <li>You have metabolic illnesses like diabetes.</li>
               <li>You are pregnant or breastfeeding.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Monitoring & Success Tips
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Use weekly weight averages for accuracy.</li>
               <li>Track training, sleep, energy, and hunger.</li>
               <li>If weight jumps  greater than 1% per week, slow or pause increases.</li>
@@ -4608,8 +4606,8 @@ export default function calorieCalulatorPage() {
               <li>Accept minor fat gain if performance improves.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">Quick FAQ</h3>
-            <ul className="list-disc list-inside mb-4">
+            <h3 className="text-xl  text-blue-900 mb-2">Quick FAQ</h3>
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>
                 <strong>Will reverse dieting make me gain fat?</strong>  
                 Some initial gain (water + glycogen) is normal, but fat gain is
@@ -4625,10 +4623,10 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-2">
+            <h3 className="text-xl  text-blue-900 mb-2">
               Final Practical Tips
             </h3>
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc list-inside mb-3 text-sm">
               <li>Increase calories slowly (+50–100 kcal/week).</li>
               <li>Keep protein stable to protect muscle.</li>
               <li>Prioritize carbs for recovery and hormonal support.</li>
@@ -4636,18 +4634,18 @@ export default function calorieCalulatorPage() {
               <li>Seek guidance if you have medical or eating-related conditions.</li>
             </ul>
 
-            <p className="italic text-gray-700">
+            <p className="italic text-gray-700 mb-3 text-sm" >
               In summary, reverse dieting helps restore metabolic health after calorie
               restriction by reintroducing food in a controlled, gradual manner —
               making it a smart, sustainable way to exit a fat-loss phase.
             </p>
           </div>
           <div className="p-6 text-gray-800 leading-relaxed">
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">
+            <h2 className="text-xl font-bold text-blue-900 mb-2">
               8. Calorie/Carb Backloading
             </h2>
 
-            <p className="mb-4">
+            <p className="mb-3 text-sm">
               <strong>Calorie/Carb Backloading</strong> is a strategic eating approach
               where you consume most of your daily calories — especially carbohydrates
               — later in the day, typically after your workout. It’s based on the idea
@@ -4656,24 +4654,24 @@ export default function calorieCalulatorPage() {
               less fat storage.
             </p>
 
-            <p className="mb-4 italic text-gray-700">
+            <p className="mb-3 text-sm italic text-gray-700">
               “Eat lighter in the morning, train in the afternoon or evening, and eat
               heavier (especially carbs) at night.”
             </p>
 
-            <p className="mb-6">
+            <p className="mb-3 text-sm">
               It’s the opposite of traditional diet advice that says “eat breakfast
               like a king and dinner like a beggar.”
             </p>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               How It Works (Mechanism)
             </h3>
 
-            <h4 className="text-xl font-semibold text-blue-900 mb-2">
+            <h4 className="text-xl  text-blue-900 mb-2">
               1. Insulin Sensitivity and Timing:
             </h4>
-            <ul className="list-disc ml-6 mb-4">
+            <ul className="list-disc ml-3 mb-3 text-sm">
               <li>After resistance training, your muscles become highly insulin-sensitive.</li>
               <li>
                 This means they absorb glucose more efficiently, storing it as muscle
@@ -4685,10 +4683,10 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h4 className="text-xl font-semibold text-blue-900 mb-2">
+            <h4 className="text-xl  text-blue-900 mb-2">
               2. Circadian Rhythm and Hormone Response:
             </h4>
-            <ul className="list-disc ml-6 mb-6">
+            <ul className="list-disc ml-3 mb-3 text-sm">
               <li>
                 Early in the day, cortisol (a stress hormone) is high, promoting fat
                 burning.
@@ -4703,46 +4701,46 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Typical Daily Pattern
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="min-w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-50 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2">Time of Day</th>
-                    <th className="border px-4 py-2">Meal Type</th>
-                    <th className="border px-4 py-2">Composition</th>
+                    <th className="border p-1">Time of Day</th>
+                    <th className="border p-1">Meal Type</th>
+                    <th className="border p-1">Composition</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-4 py-2">Morning</td>
-                    <td className="border px-4 py-2">Light</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Morning</td>
+                    <td className="border p-1">Light</td>
+                    <td className="border p-1">
                       Protein + Fat (e.g., eggs, avocado, nuts, coffee) — few or no
                       carbs
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Midday</td>
-                    <td className="border px-4 py-2">Moderate</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Midday</td>
+                    <td className="border p-1">Moderate</td>
+                    <td className="border p-1">
                       Protein + Veggies (low-carb)
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Afternoon/Evening (After Workout)</td>
-                    <td className="border px-4 py-2">Heavy</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Afternoon/Evening (After Workout)</td>
+                    <td className="border p-1">Heavy</td>
+                    <td className="border p-1">
                       Protein + High Carbs (rice, potatoes, pasta, fruits, etc.)
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Night</td>
-                    <td className="border px-4 py-2">Optional Snack</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Night</td>
+                    <td className="border p-1">Optional Snack</td>
+                    <td className="border p-1">
                       Carbs + Protein to improve sleep and recovery
                     </td>
                   </tr>
@@ -4750,10 +4748,10 @@ export default function calorieCalulatorPage() {
               </table>
             </div>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl f text-blue-900 mb-3">
               Scientific Rationale
             </h3>
-            <ul className="list-disc ml-6 mb-6">
+            <ul className="list-disc ml-3 mb-3 text-sm">
               <li>
                 <strong>Insulin Sensitivity:</strong> Exercise boosts insulin
                 sensitivity, making post-workout carbs more likely to replenish
@@ -4770,10 +4768,10 @@ export default function calorieCalulatorPage() {
               </li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Merits (Advantages)
             </h3>
-            <ul className="list-disc ml-6 mb-6">
+            <ul className="list-disc ml-3 mb-3 text-sm">
               <li>Optimized fat burning during low-carb mornings.</li>
               <li>Better nutrient partitioning and muscle glycogen restoration.</li>
               <li>Improved recovery and muscle growth post-workout.</li>
@@ -4783,10 +4781,10 @@ export default function calorieCalulatorPage() {
               <li>Reduced hunger and cravings.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Demerits (Disadvantages)
             </h3>
-            <ul className="list-disc ml-6 mb-6">
+            <ul className="list-disc ml-3 mb-3 text-sm">
               <li>Low energy in the morning for some individuals.</li>
               <li>Not suitable for morning exercisers.</li>
               <li>Challenging for certain lifestyles or work schedules.</li>
@@ -4796,64 +4794,64 @@ export default function calorieCalulatorPage() {
               <li>Possible sleep issues from large meals late at night.</li>
             </ul>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Summary Table
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="min-w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-50 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2">Aspect</th>
-                    <th className="border px-4 py-2">Description</th>
+                    <th className="border p-1">Aspect</th>
+                    <th className="border p-1">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-4 py-2">Concept</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Concept</td>
+                    <td className="border p-1">
                       Eat fewer calories and carbs early, most carbs later (after training)
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Goal</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Goal</td>
+                    <td className="border p-1">
                       Maximize fat loss, muscle gain, and recovery
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Ideal For</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Ideal For</td>
+                    <td className="border p-1">
                       Evening exercisers, strength trainers, body recomposition
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Mechanism</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Mechanism</td>
+                    <td className="border p-1">
                       Uses post-workout insulin sensitivity for better nutrient partitioning
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Main Advantage</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Main Advantage</td>
+                    <td className="border p-1">
                       Promotes fat burning and better sleep
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Main Disadvantage</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Main Disadvantage</td>
+                    <td className="border p-1">
                       Poor fit for morning workouts; possible overeating
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Scientific Support</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Scientific Support</td>
+                    <td className="border p-1">
                       Moderate — supports insulin timing and glycogen replenishment
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Sustainability</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Sustainability</td>
+                    <td className="border p-1">
                       Moderate to high (for those who prefer large dinners)
                     </td>
                   </tr>
@@ -4861,46 +4859,46 @@ export default function calorieCalulatorPage() {
               </table>
             </div>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Practical Example (2,000 kcal Plan)
             </h3>
 
-            <div className="overflow-x-auto mb-6">
+            <div className="overflow-x-auto mb-3">
               <table className="min-w-full border border-gray-300 text-sm">
                 <thead className="bg-blue-50 text-blue-900">
                   <tr>
-                    <th className="border px-4 py-2">Meal</th>
-                    <th className="border px-4 py-2">Time</th>
-                    <th className="border px-4 py-2">Macros (approx.)</th>
+                    <th className="border p-1">Meal</th>
+                    <th className="border p-1">Time</th>
+                    <th className="border p-1">Macros (approx.)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-4 py-2">Breakfast</td>
-                    <td className="border px-4 py-2">8:00 AM</td>
-                    <td className="border px-4 py-2">300 kcal — 25g P, 15g F, 5g C</td>
+                    <td className="border p-1">Breakfast</td>
+                    <td className="border p-1">8:00 AM</td>
+                    <td className="border p-1">300 kcal — 25g P, 15g F, 5g C</td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Lunch</td>
-                    <td className="border px-4 py-2">1:00 PM</td>
-                    <td className="border px-4 py-2">400 kcal — 30g P, 20g F, 10g C</td>
+                    <td className="border p-1">Lunch</td>
+                    <td className="border p-1">1:00 PM</td>
+                    <td className="border p-1">400 kcal — 30g P, 20g F, 10g C</td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Workout</td>
-                    <td className="border px-4 py-2">6:00 PM</td>
-                    <td className="border px-4 py-2">—</td>
+                    <td className="border p-1">Workout</td>
+                    <td className="border p-1">6:00 PM</td>
+                    <td className="border p-1">—</td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Dinner (Post-Workout)</td>
-                    <td className="border px-4 py-2">7:00 PM</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Dinner (Post-Workout)</td>
+                    <td className="border p-1">7:00 PM</td>
+                    <td className="border p-1">
                       900 kcal — 40g P, 20g F, 120g C
                     </td>
                   </tr>
                   <tr>
-                    <td className="border px-4 py-2">Snack</td>
-                    <td className="border px-4 py-2">9:30 PM</td>
-                    <td className="border px-4 py-2">
+                    <td className="border p-1">Snack</td>
+                    <td className="border p-1">9:30 PM</td>
+                    <td className="border p-1">
                       400 kcal — 25g P, 10g F, 60g C
                     </td>
                   </tr>
@@ -4908,10 +4906,10 @@ export default function calorieCalulatorPage() {
               </table>
             </div>
 
-            <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+            <h3 className="text-xl  text-blue-900 mb-3">
               Key Takeaways
             </h3>
-            <ul className="list-disc ml-6">
+            <ul className="list-disc ml-3 text-sm">
               <li>Stay low-carb in the morning to promote fat burning.</li>
               <li>
                 Eat most calories and carbs in the evening for recovery and sleep.
@@ -4930,7 +4928,7 @@ export default function calorieCalulatorPage() {
         </div>
 
         {/* Sidebar below */}
-        <div className="bg-white p-2 shadow-lg rounded-xl">
+        <div className="bg-white shadow-lg rounded-xl">
           <Sidebar />
         </div>
       </div>

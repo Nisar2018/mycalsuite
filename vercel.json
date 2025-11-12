@@ -4,5 +4,11 @@
   "installCommand": "npm install",
   "env": {
     "NODE_VERSION": "20"
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

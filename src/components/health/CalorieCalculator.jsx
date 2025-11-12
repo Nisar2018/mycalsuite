@@ -355,7 +355,7 @@ export default function CalorieCalculator() {
         <div className="border border-blue-100 shadow p-2 rounded-lg bg-white">
           
 
-          <div className="space-y-3">
+          <div className="space-y-3  p-3 rounded">
       
             <div className="flex gap-2">
               <button
@@ -374,16 +374,31 @@ export default function CalorieCalculator() {
 
             <div className="flex items-center gap-2">
               <label className="w-24">Age:</label>
-              <input type="number" value={age} onChange={(e) => setAge(e.target.value)} className="border p-1 flex-1" placeholder="years" />
+              <input 
+                type="number" 
+                value={age} 
+                onChange={(e) => setAge(e.target.value)} 
+                className="border p-1 flex-1" placeholder="years" />
             </div>
 
             <div>
-              <label className="mr-2">Gender:</label>
-              <label className="mr-2">
-                <input type="radio" name="gender" value="male" checked={gender === "male"} onChange={() => setGender("male")} /> Male
+              <label className="font-medium">Gender:</label>
+              <label className="flex-1 gap-4 mt-1">
+                <input 
+                    type="radio" 
+                     
+                    value="male" 
+                    checked={gender === "male"} 
+                    onChange={(e) => setGender(e.target.value)} /> 
+                    Male
               </label>
               <label>
-                <input type="radio" name="gender" value="female" checked={gender === "female"} onChange={() => setGender("female")} /> Female
+                <input 
+                    type="radio" 
+                    value="female" 
+                    checked={gender === "female"} 
+                    onChange={(e) => setGender(e.target.value)} /> 
+                    Female
               </label>
             </div>
 

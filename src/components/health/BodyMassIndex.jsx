@@ -400,7 +400,7 @@ const gaugeOptions = useMemo(
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Left: Input Section */}
       <div>
-        <div className="flex gap-2 justify-start mb-3">
+        <div className="flex gap-2 justify-start mt-4">
           <button
             onClick={() => setUnit("us")}
             className={`px-4 py-2 text-sm sm:text-base text-white rounded ${
@@ -522,11 +522,11 @@ const gaugeOptions = useMemo(
 
       {/* Right Column (Instruction) */}
       <div>
-        <div className="border-4 border-green-200 p-4 shadow-md bg-gray-50 rounded-lg flex flex-col items-center md:mt-[40px] h-full">
+        <div className="border-4 border-green-200 p-2 shadow-md bg-gray-50 rounded-lg flex flex-col items-center md:mt-2.5 ">
           
             
-              <h2 className="text-2xl font-bold text-blue-900 mb-1 text-center">
-                🧭 How to Use the BMI Calculator
+              <h2 className="text-xl font-bold bg-blue-900 mb-1 px-4 py-2 text-white ">
+                How to Use BMI Calculator
               </h2>
 
               <p className="text-gray-800 text-sm leading-relaxed ">
@@ -557,7 +557,7 @@ const gaugeOptions = useMemo(
                         
               <p className="text-gray-800 text-sm  leading-relaxed">
                 <b>Step 5 – Clear Inputs:</b> Click the 
-                <span className="bg-gray-400 text-white px-2 py-1 rounded text-sm ml-1">Clear</span> 
+                <span className="bg-gray-400 text-white px-2 rounded text-sm ml-1">Clear</span> 
                 button to reset all fields and start a new calculation.
               </p>
 

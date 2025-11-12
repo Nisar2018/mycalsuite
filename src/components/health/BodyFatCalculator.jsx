@@ -222,24 +222,20 @@ export default function BodyFatCalculator() {
         {/* Left Column - Input Form */}
         <div className="border border-blue-100 shadow p-4 rounded">
           {/* Unit Switch */}
-          <div className="flex mb-3">
-            <button
-              onClick={() => setUnit("us")}
-              className={`px-2 py-1 border text-sm font-semibold ${
-                unit === "us" ? "bg-blue-900 text-white" : "bg-gray-300"
-              }`}
-            >
-              US Units
-            </button>
-            <button
-              onClick={() => setUnit("metric")}
-              className={`px-2 py-1 border text-sm font-semibold ${
-                unit === "metric" ? "bg-blue-900 text-white" : "bg-gray-300"
-              }`}
-            >
-              Metric Units
-            </button>
-          </div>
+          <div className="flex gap-2">
+              <button
+                onClick={() => setUnit("us")}
+                className={`px-3 py-1 rounded text-white ${unit === "us" ? "bg-blue-900" : "bg-gray-400"}`}
+              >
+                US Units
+              </button>
+              <button
+                onClick={() => setUnit("metric")}
+                className={`px-3 py-1 rounded text-white ${unit === "metric" ? "bg-blue-900" : "bg-gray-400"}`}
+              >
+                Metric Units
+              </button>
+            </div>
 
           {/* Inputs */}
           <div className="space-y-3 bg-gray-100 p-3 rounded">

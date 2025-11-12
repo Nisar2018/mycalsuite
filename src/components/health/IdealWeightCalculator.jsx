@@ -142,24 +142,20 @@ const IdealWeightCalculator = () => {
         {/* Left Column */}
         <div className=" border border-blue-100 shadow-md rounded-lg p-4">
           {/* Menu */}
-          <div className="flex gap-2 mb-4">
-            <button
-              onClick={() => setUnit("us")}
-              className={`flex-1 py-2 text-white text-sm font-semibold rounded ${
-                unit === "us" ? "bg-blue-900" : "bg-gray-400"
-              }`}
-            >
-              US Units
-            </button>
-            <button
-              onClick={() => setUnit("metric")}
-              className={`flex-1 py-2 text-white text-sm font-semibold rounded ${
-                unit === "metric" ? "bg-blue-900" : "bg-gray-400"
-              }`}
-            >
-              Metric Units
-            </button>
-          </div>
+          <div className="flex gap-2">
+              <button
+                onClick={() => setUnit("us")}
+                className={`px-3 py-1 rounded text-white ${unit === "us" ? "bg-blue-900" : "bg-gray-400"}`}
+              >
+                US Units
+              </button>
+              <button
+                onClick={() => setUnit("metric")}
+                className={`px-3 py-1 rounded text-white ${unit === "metric" ? "bg-blue-900" : "bg-gray-400"}`}
+              >
+                Metric Units
+              </button>
+            </div>
 
           {/* Input Fields */}
           <div className="space-y-4">
@@ -236,13 +232,13 @@ const IdealWeightCalculator = () => {
             <div className="flex gap-4 justify-center mt-2">
               <button
                 onClick={calculateIdealWeight}
-                className="bg-blue-900 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700"
+                className="bg-blue-900 text-white font-semibold px-3 py-1 rounded shadow hover:bg-blue-700"
               >
                 Calculate
               </button>
               <button
                 onClick={clearAll}
-                className="bg-gray-300 text-black font-semibold px-4 py-2 rounded shadow hover:bg-gray-400"
+                className="bg-gray-300 text-black font-semibold px-3 py-1 rounded shadow hover:bg-gray-400"
               >
                 Clear
               </button>

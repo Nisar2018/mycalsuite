@@ -274,10 +274,10 @@ const MacroCalculator = () => {
         {/* Left Column - Inputs */}
         <div>
           {/* ✅ Menu Button for Unit System */}
-          <div className="flex gap-2 justify-start mb-4">
+          <div className="flex gap-2 justify-start">
             <button
               onClick={() => setUnitSystem("metric")}
-              className={`px-4 py-2 text-sm sm:text-base rounded ${
+              className={`px-3 py-1 text-sm sm:text-base rounded ${
                 unitSystem === "metric"
                   ? "bg-blue-900 text-white"
                   : "bg-gray-400 text-gray-700"
@@ -287,7 +287,7 @@ const MacroCalculator = () => {
             </button>
             <button
               onClick={() => setUnitSystem("us")}
-              className={`px-4 py-2 text-sm sm:text-base rounded ${
+              className={`px-3 py-1 text-sm sm:text-base rounded ${
                 unitSystem === "us"
                   ? "bg-blue-900 text-white"
                   : "bg-gray-400 text-gray-100"
@@ -316,7 +316,7 @@ const MacroCalculator = () => {
                 <label>
                   <input
                     type="radio"
-                    name="gender"
+                    
                     value="male"
                     checked={gender === "male"}
                     onChange={() => setGender("male")}
@@ -326,7 +326,7 @@ const MacroCalculator = () => {
                 <label>
                   <input
                     type="radio"
-                    name="gender"
+                    
                     value="female"
                     checked={gender === "female"}
                     onChange={() => setGender("female")}
@@ -432,13 +432,13 @@ const MacroCalculator = () => {
             <div className="flex justify-center gap-2 mt-2">
               <button
                 onClick={handleCalculate}
-                className="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm sm:text-base"
+                className="bg-blue-900 text-white px-3 py-1 rounded-lg text-sm sm:text-base"
               >
                 Calculate
               </button>
               <button
                 onClick={clearAll}
-                className="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm sm:text-base"
+                className="bg-gray-400 text-white px-3 py-1 rounded-lg text-sm sm:text-base"
               >
                 Clear
               </button>
@@ -448,7 +448,7 @@ const MacroCalculator = () => {
 
         {/* Right Column - Instructions */}
         <div className="border border-gray-200 bg-gray-50 rounded-lg p-4 leading-relaxed text-gray-700">
-          <h3 className="text-lg font-bold text-blue-800 mb-2">
+          <h3 className="text-xl font-bold bg-blue-900 text-white text-center py-2 mb-5">
             How to Use This Calculator
           </h3>
           <ol className="list-decimal list-inside space-y-2">

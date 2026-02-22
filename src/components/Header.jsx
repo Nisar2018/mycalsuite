@@ -67,6 +67,13 @@ export default function Header() {
                 >
                   Percentage Calculator
                 </Link>
+                <Link
+                  to="/gwa-calculator"
+                  onClick={toggleMenu}
+                  className="block pl-8 pr-4 py-2 hover:bg-gray-50"
+                >
+                  GWA Calculator
+                </Link>
               </div>
             )}
           </div>

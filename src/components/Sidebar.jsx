@@ -39,6 +39,12 @@ export default function Sidebar() {
             >
               Percentage Calculator
             </Link>
+            <Link
+              to="/gwa-calculator"
+              className="block text-sm text-gray-700 hover:text-blue-700"
+            >
+              GWA Calculator
+            </Link>
           </div>
         )}
       </div>
